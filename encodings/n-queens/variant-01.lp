@@ -18,7 +18,7 @@ column(1..8).
 
 % No two queens share a diagonal: the "\" direction (constant R - C), then "/"
 % (constant R + C).
-:- queen_at(R1,C1), queen_at(R2,C2), R1 < R2, R1 - C1 == R2 - C2.
-:- queen_at(R1,C1), queen_at(R2,C2), R1 < R2, R1 + C1 == R2 + C2.
+:- queen_at(R1,C1), queen_at(R2,C2), R1 < R2, R1 - C1 = R2 - C2.
+:- queen_at(R1,C1), queen_at(R2,C2), R1 < R2, R1 + C1 = R2 + C2.
 
 #show queen_at/2.

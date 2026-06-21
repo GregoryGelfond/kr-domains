@@ -21,7 +21,7 @@ column(1..n).
 :- column(C), not 1{ queen_at(R,C) }1.
 
 % No two queens share a diagonal.
-:- queen_at(R1,C1), queen_at(R2,C2), (R1,C1) != (R2,C2), R1 - C1 == R2 - C2.
-:- queen_at(R1,C1), queen_at(R2,C2), (R1,C1) != (R2,C2), R1 + C1 == R2 + C2.
+:- queen_at(R1,C1), queen_at(R2,C2), (R1,C1) != (R2,C2), R1 - C1 = R2 - C2.
+:- queen_at(R1,C1), queen_at(R2,C2), (R1,C1) != (R2,C2), R1 + C1 = R2 + C2.
 
 #show queen_at/2.
