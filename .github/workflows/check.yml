@@ -1,0 +1,25 @@
+# Corpus-drift gate. Every change must keep the corpus self-verifying: this runs the same gate as
+# local development — `pixi run check` (ruff + mypy --strict + the contract-checked cases on clingo
+# and clingcon) — against the committed lockfile, so the run is reproducible. elenctic is a public
+# dependency, so no credentials are needed.
+
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: prefix-dev/setup-pixi@v0.8.1
+        with:
+          locked: true
+      - run: pixi run check

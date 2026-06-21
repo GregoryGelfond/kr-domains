@@ -1,0 +1,18 @@
+% Scenario 04: Two depots, two customers, uniform cost.
+% @expect sat
+% @cost { 4 }
+% @count optimal 2
+%
+% Each depot has a cost-1 edge (both directions) to each customer: a <-> c,
+% a <-> d, b <-> c, b <-> d. Either customer-to-salesman assignment costs the same
+% (s1:c + s2:d, or s1:d + s2:c, each 4), so two co-optimal models exist.
+
+vertex(a). vertex(b). vertex(c). vertex(d).
+
+edge(a,c,1). edge(c,a,1).
+edge(a,d,1). edge(d,a,1).
+edge(b,c,1). edge(c,b,1).
+edge(b,d,1). edge(d,b,1).
+
+salesman(s1). salesman(s2).
+depot(s1,a). depot(s2,b).

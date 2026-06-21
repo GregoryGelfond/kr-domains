@@ -1,0 +1,36 @@
+# Solver toolchain for kr-domains, pinned. Required baseline: `pixi run <cmd>` / `pixi shell`.
+# This corpus runs on two solvers, both invoked directly by the encodings:
+#   * clingo    — the pure-ASP baseline encodings   (e.g. `clingo    send-money.lp`)
+#   * clingcon  — the constraint (CP) variants       (e.g. `clingcon  send-money-clingcon.lp`)
+# clingcon is pinned to 5.2.1 to match the estate reference toolchain (krml, krml-poc).
+# clingo is declared explicitly — the baselines invoke it directly, not transitively — so
+# the manifest states both tools the corpus actually targets.
+# The lockfile (pixi.lock) is generated on first `pixi install` and is committed.
+
+[workspace]
+name = "kr-domains"
+description = "A literate corpus of Answer Set Programming domain encodings — pure-clingo baselines paired with clingcon CP variants"
+license = "MIT"
+channels = ["conda-forge"]
+platforms = ["osx-arm64", "osx-64", "linux-64"]
+
+[dependencies]
+python = "3.14.*"
+clingo = "5.8.*"
+clingcon = "5.2.1.*"
+pytest = "*"
+ruff = "*"
+mypy = "*"
+
+[pypi-dependencies]
+# elenctic is consumed as a library from its public repo (frozen; kr-domains is its client #1 and
+# dogfoods it). clingo/clingcon come from conda-forge above, so elenctic's runtime imports resolve
+# against them — the optional `[theory]` extra is unneeded.
+elenctic = { git = "https://github.com/GregoryGelfond/elenctic.git" }
+
+[tasks]
+# Mirrors elenctic's gate, so the corpus is held to the same bar.
+test = "pytest -q"
+lint = "ruff check . && ruff format --check ."
+typecheck = "mypy"
+check = { depends-on = ["lint", "typecheck", "test"] }

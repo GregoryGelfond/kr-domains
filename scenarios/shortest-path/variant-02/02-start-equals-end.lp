@@ -1,0 +1,18 @@
+% Scenario 02: Start equals end, no ordering constraints.
+% @expect sat
+% @cost { 0 0 }
+% @count optimal 1
+% @optimal { start(a), end(a) }
+%
+% The start = end edge case still resolves to the empty path in variant-02: the
+% reachable(V) :- start(V) base case makes the start reachable, and no
+% before/after facts apply.
+
+vertex(a).
+vertex(b).
+
+edge(a,b,5).
+edge(b,a,5).
+
+start(a).
+end(a).
