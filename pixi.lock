@@ -55,7 +55,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/tomli-2.4.1-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing_extensions-4.15.0-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
-      - pypi: git+https://github.com/GregoryGelfond/elenctic.git#d453afad54fd73bdef644a0aa9b30c2a02cedf60
+      - pypi: git+https://github.com/GregoryGelfond/elenctic.git#83ef9492bb9755a8305c7d7645de194daea7ee62
       osx-64:
       - conda: https://conda.anaconda.org/conda-forge/noarch/_python_abi3_support-1.0-hd8ed1ab_2.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2026.5.20-hbd8a1cb_0.conda
@@ -97,7 +97,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-64/ruff-0.15.18-h1ddadc8_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-64/tk-8.6.13-h7142dee_3.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-64/zstd-1.5.7-h3eecb57_6.conda
-      - pypi: git+https://github.com/GregoryGelfond/elenctic.git#d453afad54fd73bdef644a0aa9b30c2a02cedf60
+      - pypi: git+https://github.com/GregoryGelfond/elenctic.git#83ef9492bb9755a8305c7d7645de194daea7ee62
       osx-arm64:
       - conda: https://conda.anaconda.org/conda-forge/noarch/_python_abi3_support-1.0-hd8ed1ab_2.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/ca-certificates-2026.5.20-hbd8a1cb_0.conda
@@ -139,7 +139,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/ruff-0.15.18-h80928e0_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/tk-8.6.13-h010d191_3.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/zstd-1.5.7-hbf9d68e_6.conda
-      - pypi: git+https://github.com/GregoryGelfond/elenctic.git#d453afad54fd73bdef644a0aa9b30c2a02cedf60
+      - pypi: git+https://github.com/GregoryGelfond/elenctic.git#83ef9492bb9755a8305c7d7645de194daea7ee62
 packages:
 - conda: https://conda.anaconda.org/conda-forge/linux-64/_openmp_mutex-4.5-20_gnu.conda
   build_number: 20
@@ -1479,7 +1479,7 @@ packages:
     - zstd >=1.5.7,<1.6.0a0
   size: 433413
   timestamp: 1764777166076
-- pypi: git+https://github.com/GregoryGelfond/elenctic.git#d453afad54fd73bdef644a0aa9b30c2a02cedf60
+- pypi: git+https://github.com/GregoryGelfond/elenctic.git#83ef9492bb9755a8305c7d7645de194daea7ee62
   name: elenctic
   version: 0.1.0
   requires_dist:
