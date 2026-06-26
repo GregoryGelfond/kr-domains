@@ -21,10 +21,10 @@ clingo = "5.8.*"
 clingcon = "5.2.1.*"
 
 [pypi-dependencies]
-# elenctic is the test runner (the `elenctic` CLI), tracked from its public repo; kr-domains is its
-# client #1 and dogfoods it. clingo/clingcon come from conda-forge above, so elenctic's runtime
-# imports resolve against them (the optional `[theory]` extra is unneeded).
-elenctic = { git = "https://github.com/GregoryGelfond/elenctic.git" }
+# elenctic is the test runner (the `elenctic` CLI), pinned to a release tag from its public repo;
+# kr-domains is its client #1 and dogfoods it. clingo/clingcon come from conda-forge above, so
+# elenctic's runtime imports resolve against them (the optional `[theory]` extra is unneeded).
+elenctic = { git = "https://github.com/GregoryGelfond/elenctic.git", tag = "v0.1.1" }
 
 [tasks]
 # elenctic discovers and runs every contract-bearing .lp in the corpus (exit 0 pass / 1 fail / 2
