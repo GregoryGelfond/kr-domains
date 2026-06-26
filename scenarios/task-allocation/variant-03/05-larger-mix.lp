@@ -9,6 +9,8 @@
 % (3 + 1 = 4) over a1 (6) or a3 (8). t3 and t4 stay free with a3. Total 6, up from
 % the ungrouped 4.
 
+#include "../../../encodings/task-allocation/variant-03.lp".
+
 task(t1). task(t2). task(t3). task(t4).
 agent(a1). agent(a2). agent(a3).
 

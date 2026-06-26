@@ -7,6 +7,8 @@
 % s -> a -> c -> s; the alternatives are uniformly expensive. The optimum picks a
 % and c, taking s -> a -> c -> s at cost 3.
 
+#include "../../encodings/equality-generalized-tsp/egtsp.lp".
+
 vertex(s). vertex(a). vertex(b). vertex(c). vertex(d).
 
 edge(s,a,1). edge(s,b,5).

@@ -9,6 +9,8 @@
 % the cheaper cycle-free route, s -> d -> e -> t at weight 3, and leaves every
 % back-edge out.
 
+#include "../../../encodings/shortest-path/variant-01.lp".
+
 vertex(s).
 vertex(a). vertex(b). vertex(c).
 vertex(d). vertex(e).

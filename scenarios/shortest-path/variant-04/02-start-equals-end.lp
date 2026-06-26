@@ -8,6 +8,8 @@
 % before/after facts apply. variant-04 preserves the start = end edge case from
 % variant-01.
 
+#include "../../../encodings/shortest-path/variant-04.lp".
+
 vertex(a).
 vertex(b).
 

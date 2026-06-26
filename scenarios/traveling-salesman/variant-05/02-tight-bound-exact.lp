@@ -7,6 +7,8 @@
 % tour_time(s1) = 6. max_revisit_interval(b,6) and (c,6) hold at the bound: the
 % encoded inequality is tour_time <= 6, so equality qualifies.
 
+#include "../../../encodings/traveling-salesman/variant-05.lp".
+
 vertex(a). vertex(b). vertex(c).
 
 edge(a,b,1). edge(b,c,1). edge(c,a,1).

@@ -5,6 +5,8 @@
 % max_revisit_interval(b,4) requires tour_time <= 4, but no tour visits b in under
 % 6 time units (a -> b is time 2, the return b -> c -> a is time 4). UNSAT.
 
+#include "../../../encodings/traveling-salesman/variant-05.lp".
+
 vertex(a). vertex(b). vertex(c).
 
 edge(a,b,1). edge(b,c,1). edge(c,a,1).

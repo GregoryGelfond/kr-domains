@@ -11,6 +11,8 @@
 %   all three on a2:     makespan max( 0, 6) = 6
 % The three "one-on-a1, two-on-a2" assignments tie at makespan 5.
 
+#include "../../../encodings/task-allocation/variant-02.lp".
+
 task(t1). task(t2). task(t3).
 agent(a1). agent(a2).
 

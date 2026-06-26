@@ -10,6 +10,8 @@
 % maximum_cost(5) rules out the direct edge (10 > 5), so the detour through a
 % is the only feasible route, at weight 4.
 
+#include "../../../encodings/shortest-path/variant-03.lp".
+
 vertex(s).
 vertex(a).
 vertex(t).

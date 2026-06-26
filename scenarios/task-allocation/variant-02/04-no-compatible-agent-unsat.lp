@@ -6,6 +6,8 @@
 % not make an agent compatible. The choice rule fails for t2, and the program is
 % UNSAT, exactly as in variant-01.
 
+#include "../../../encodings/task-allocation/variant-02.lp".
+
 task(t1). task(t2).
 agent(a1). agent(a2). agent(a3).
 

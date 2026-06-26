@@ -8,6 +8,8 @@
 % path through b3, and maximum_cost(15) bounds the resource cost, restricting
 % which b3-routes are feasible. The two optima share the s -> a3 -> b3 entry.
 
+#include "../../../encodings/shortest-path/variant-04.lp".
+
 vertex(s).
 vertex(a1).  vertex(a2).  vertex(a3).
 vertex(b1).  vertex(b2).  vertex(b3).

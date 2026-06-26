@@ -8,6 +8,8 @@
 % clingo; visit_time(a,s1) linked to tour_time(s1) in clingcon), so it propagates
 % to rule out any close time over 5.
 
+#include "../../../encodings/traveling-salesman/variant-04.lp".
+
 vertex(a). vertex(b).
 
 edge(a,b,1). edge(b,a,1).

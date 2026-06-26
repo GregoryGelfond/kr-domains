@@ -5,6 +5,8 @@
 % only a2. The group forces a single agent on both, but none is compatible with
 % both, so the group constraint fires and the program is UNSAT.
 
+#include "../../../encodings/task-allocation/variant-03.lp".
+
 task(t1). task(t2).
 agent(a1). agent(a2).
 

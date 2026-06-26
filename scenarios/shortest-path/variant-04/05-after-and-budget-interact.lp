@@ -12,6 +12,8 @@
 % (weight 4), but after(a,s) requires s to reach a, which s -> b -> t does not, so
 % the cheapest ordering-feasible route is s -> a -> t at weight 6.
 
+#include "../../../encodings/shortest-path/variant-04.lp".
+
 vertex(s).
 vertex(a).
 vertex(b).

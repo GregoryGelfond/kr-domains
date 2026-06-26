@@ -7,6 +7,8 @@
 % directed, so the ordering is forced; the loose windows ([0,5]) all admit it.
 % Total 4.
 
+#include "../../../encodings/traveling-salesman/variant-04.lp".
+
 vertex(a). vertex(b). vertex(c). vertex(d).
 
 edge(a,b,1). edge(b,c,1). edge(c,d,1). edge(d,a,1).

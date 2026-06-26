@@ -8,6 +8,8 @@
 % and the reverse a -> c -> b -> a at cost 5 each (15). The optimum is the cheap
 % one.
 
+#include "../../../encodings/traveling-salesman/variant-01.lp".
+
 vertex(a). vertex(b). vertex(c).
 
 % Cheap cycle direction.

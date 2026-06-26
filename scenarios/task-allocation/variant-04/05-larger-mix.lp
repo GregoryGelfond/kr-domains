@@ -9,6 +9,8 @@
 % a total of 5. a1 runs t1 and t3 (durations 2, 3); a2 runs t2 before t4
 % (durations 2, 2); both fit [0,10] with the ordering respected.
 
+#include "../../../encodings/task-allocation/variant-04.lp".
+
 task(t1). task(t2). task(t3). task(t4).
 agent(a1). agent(a2).
 

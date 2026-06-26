@@ -11,6 +11,8 @@
 % Cost minimization takes the longest-hop route because it is cheapest; the
 % edge-count tie-breaker does not override the cost objective.
 
+#include "../../../encodings/shortest-path/variant-01.lp".
+
 vertex(s).
 vertex(a).
 vertex(b).

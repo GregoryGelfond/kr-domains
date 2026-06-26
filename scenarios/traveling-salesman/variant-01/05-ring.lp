@@ -8,6 +8,8 @@
 % tour taking a diagonal swaps a cost-5 edge for two cost-1 edges and so must add
 % a unit edge elsewhere, exceeding 5. The two ring directions are co-optimal.
 
+#include "../../../encodings/traveling-salesman/variant-01.lp".
+
 vertex(a). vertex(b). vertex(c). vertex(d). vertex(e).
 
 % Ring edges (both directions, cost 1).

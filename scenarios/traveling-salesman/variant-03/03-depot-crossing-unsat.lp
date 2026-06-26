@@ -8,6 +8,8 @@
 % With a single shared start (variant-02) the same graph has a valid one-tour
 % solution at cost 3; variant-03's per-salesman depots are what make it infeasible.
 
+#include "../../../encodings/traveling-salesman/variant-03.lp".
+
 vertex(a). vertex(b). vertex(c).
 
 edge(a,b,1). edge(b,c,1). edge(c,a,1).

@@ -8,6 +8,8 @@
 % b -> e1 -> e2 -> b, c -> f1 -> f2 -> c, each cost 3. No cross-cluster edges, so
 % each salesman patrols its own cluster, visiting both its customers. Total 9.
 
+#include "../../../encodings/traveling-salesman/variant-03.lp".
+
 vertex(a). vertex(b). vertex(c).
 vertex(d1). vertex(d2).
 vertex(e1). vertex(e2).

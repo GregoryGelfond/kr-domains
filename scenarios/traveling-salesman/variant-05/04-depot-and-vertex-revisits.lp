@@ -9,6 +9,8 @@
 % non-depot vertices. All hold: 6 <= 8, 6 <= 7, 6 <= 8. Exercises several
 % surveillance bounds on one tour, one of them on the depot.
 
+#include "../../../encodings/traveling-salesman/variant-05.lp".
+
 vertex(a). vertex(b). vertex(c).
 
 edge(a,b,1). edge(b,c,1). edge(c,a,1).

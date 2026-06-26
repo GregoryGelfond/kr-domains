@@ -9,6 +9,8 @@
 % cheapest hop at each layer is also globally shortest: s -> a1 -> b1 -> c1 -> t
 % at weight 4.
 
+#include "../../../encodings/shortest-path/variant-01.lp".
+
 vertex(s).
 vertex(a1).  vertex(a2).  vertex(a3).
 vertex(b1).  vertex(b2).  vertex(b3).

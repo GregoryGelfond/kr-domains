@@ -9,6 +9,8 @@
 % for a total of 6. This is what distinguishes the encoding from bipartite
 % matching, where each agent would take at most one task.
 
+#include "../../../encodings/task-allocation/variant-01.lp".
+
 task(t1).
 task(t2).
 task(t3).

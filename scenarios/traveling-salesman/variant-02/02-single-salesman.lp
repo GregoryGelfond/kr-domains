@@ -7,6 +7,8 @@
 % With one salesman, variant-02 reduces to variant-01: a single Hamiltonian tour.
 % The variant-01 triangle, cheap forward cycle (3) against expensive reverse (15).
 
+#include "../../../encodings/traveling-salesman/variant-02.lp".
+
 vertex(a). vertex(b). vertex(c).
 
 edge(a,b,1). edge(b,c,1). edge(c,a,1).

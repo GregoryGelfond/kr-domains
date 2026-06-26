@@ -7,6 +7,8 @@
 % two salesmen split the cycles for a total of 4; the assignment is symmetric, so
 % two co-optimal models exist.
 
+#include "../../../encodings/traveling-salesman/variant-02.lp".
+
 vertex(a). vertex(b). vertex(c).
 
 edge(a,b,1). edge(b,a,1).

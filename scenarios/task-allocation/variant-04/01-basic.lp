@@ -8,6 +8,8 @@
 % (1), t2 -> a2 (1), total 2. The schedule is free (many start-time pairs tie), so
 % only the assignment is pinned.
 
+#include "../../../encodings/task-allocation/variant-04.lp".
+
 task(t1). task(t2).
 agent(a1). agent(a2).
 

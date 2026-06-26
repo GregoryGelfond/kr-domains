@@ -8,6 +8,8 @@
 % the reachable(V) :- start(V) base case: the start reaches itself, so no edge is
 % needed for end-reachability.
 
+#include "../../../encodings/shortest-path/variant-01.lp".
+
 vertex(a).
 vertex(b).
 

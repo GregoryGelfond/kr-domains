@@ -8,6 +8,8 @@
 % &sum <= 10 bound propagates during search, pruning much of the candidate space
 % early.
 
+#include "../../../encodings/shortest-path/variant-03.lp".
+
 vertex(s).
 vertex(a1).  vertex(a2).  vertex(a3).
 vertex(b1).  vertex(b2).  vertex(b3).

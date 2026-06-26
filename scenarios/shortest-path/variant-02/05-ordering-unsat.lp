@@ -6,6 +6,8 @@
 % has no outgoing edges, so :- before(X,Y), reachable(Y), not reachable_from(X,Y)
 % fires. The program is UNSAT.
 
+#include "../../../encodings/shortest-path/variant-02.lp".
+
 vertex(a).
 vertex(b).
 vertex(c).

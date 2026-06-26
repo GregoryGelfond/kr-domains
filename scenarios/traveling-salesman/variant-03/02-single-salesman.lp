@@ -7,6 +7,8 @@
 % The variant-01 triangle with one salesman at depot a: classical TSP starting and
 % ending at a. The cheap forward cycle (3) beats the expensive reverse (15).
 
+#include "../../../encodings/traveling-salesman/variant-03.lp".
+
 vertex(a). vertex(b). vertex(c).
 
 edge(a,b,1). edge(b,c,1). edge(c,a,1).

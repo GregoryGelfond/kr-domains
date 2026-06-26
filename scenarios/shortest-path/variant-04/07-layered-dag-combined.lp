@@ -10,6 +10,8 @@
 % s -> a2 -> b3 -> c3 -> t at weight 10. This case pushes hardest on the
 % interaction between the reachable_from/2 layer and the clingcon cost cap.
 
+#include "../../../encodings/shortest-path/variant-04.lp".
+
 vertex(s).
 vertex(a1).  vertex(a2).  vertex(a3).
 vertex(b1).  vertex(b2).  vertex(b3).

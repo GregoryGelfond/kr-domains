@@ -5,6 +5,8 @@
 % no walk from a to d exists, so no included subset makes d reachable: the
 % constraint :- end(Src), not reachable(Src) fires.
 
+#include "../../../encodings/shortest-path/variant-01.lp".
+
 vertex(a).
 vertex(b).
 vertex(c).

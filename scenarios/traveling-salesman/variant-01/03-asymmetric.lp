@@ -9,6 +9,8 @@
 % a -> b -> c -> d -> a costs 4; the reverse costs 40, and any mixed tour takes an
 % expensive edge or a diagonal and costs more.
 
+#include "../../../encodings/traveling-salesman/variant-01.lp".
+
 vertex(a). vertex(b). vertex(c). vertex(d).
 
 % Cheap clockwise direction.

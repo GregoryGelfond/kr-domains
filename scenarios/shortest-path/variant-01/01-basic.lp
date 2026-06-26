@@ -7,6 +7,8 @@
 % The direct edge a -> c costs 3; the two-hop path a -> b -> c costs 2, so the
 % two-hop path is shortest.
 
+#include "../../../encodings/shortest-path/variant-01.lp".
+
 vertex(a).
 vertex(b).
 vertex(c).

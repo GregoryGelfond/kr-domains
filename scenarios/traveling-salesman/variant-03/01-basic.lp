@@ -8,6 +8,8 @@
 % (a -> c -> a, cost 2), s2 at depot b serves d (b -> d -> b, cost 2). No
 % cross-cluster edges, so each salesman is confined to its own pair. Total 4.
 
+#include "../../../encodings/traveling-salesman/variant-03.lp".
+
 vertex(a). vertex(b). vertex(c). vertex(d).
 
 edge(a,c,1). edge(c,a,1).

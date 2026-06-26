@@ -8,6 +8,8 @@
 % both { a->b, b->c } and { a->b, b->c, c->d } reach c at cost 2, so only the
 % edge-count tie-breaker rules out the detour.
 
+#include "../../../encodings/shortest-path/variant-01.lp".
+
 vertex(a).
 vertex(b).
 vertex(c).

@@ -12,6 +12,8 @@
 % No cross-cluster edges, so each salesman patrols its own pair. Total cost 6 (six
 % unit edges).
 
+#include "../../../encodings/traveling-salesman/variant-05.lp".
+
 vertex(a). vertex(b). vertex(c).
 vertex(p). vertex(q). vertex(r).
 

@@ -9,6 +9,8 @@
 % 10 > 10 is false, so the path is feasible; under :- C >= M it would have been
 % excluded as UNSAT.
 
+#include "../../../encodings/shortest-path/variant-03.lp".
+
 vertex(a).
 vertex(b).
 vertex(c).

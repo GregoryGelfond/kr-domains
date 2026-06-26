@@ -8,6 +8,8 @@
 % and the cap well above any feasible cost, variant-04 reduces to variant-01:
 % the two-hop path a -> b -> c (weight 2) beats the direct a -> c (weight 3).
 
+#include "../../../encodings/shortest-path/variant-04.lp".
+
 vertex(a).
 vertex(b).
 vertex(c).

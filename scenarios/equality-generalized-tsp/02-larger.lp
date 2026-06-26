@@ -8,6 +8,8 @@
 % penalty, so no partially-cheap tour beats the all-cheap one. The optimum takes
 % s -> a1 -> b1 -> c1 -> s at cost 4; the all-expensive tour costs 12.
 
+#include "../../encodings/equality-generalized-tsp/egtsp.lp".
+
 vertex(s).
 vertex(a1). vertex(a2).
 vertex(b1). vertex(b2).

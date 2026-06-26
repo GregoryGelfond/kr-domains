@@ -8,6 +8,8 @@
 % is partial): t1 takes a2 (2), t2 takes a3 (3), and t3 has only a1 (5), for a
 % total of 10.
 
+#include "../../../encodings/task-allocation/variant-01.lp".
+
 task(t1).
 task(t2).
 task(t3).

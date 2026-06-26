@@ -8,6 +8,8 @@
 % Confirms the reachable(V) :- start(V) base case carries over to variant-03,
 % and that the cap is a no-op at cost 0.
 
+#include "../../../encodings/shortest-path/variant-03.lp".
+
 vertex(a).
 vertex(b).
 

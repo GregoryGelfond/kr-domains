@@ -8,6 +8,7 @@
 % @optimal { assigned_to(a1,t1), assigned_to(a1,t2), first(t1,t2) } where { start_time(t1)=0, start_time(t2)=3 }
 % @note Opt(P) fixes the assignment and reshuffles only the schedule: two optimal models (t1 then t2, and t2 then t1), equal in cost and agent assignment, differing only in the CSP start times.
 % @note The joint witness is load-bearing: @brave optimal { first(t1,t2) } and @assign optimal { start_time(t2)=0 } each hold, but on different optimal models, so @optimal { ..., first(t1,t2) } where { start_time(t2)=0 } would fail. The where-clause binds the shown order and the schedule on one model.
+% @elenctic solver clingcon
 %
 % The corpus's worked example of the clingcon theory-witness surface: the optimal-base
 % assignment binding (assign-optimal) and the joint witness that ties a shown projection

@@ -8,6 +8,8 @@
 % program is UNSAT. This is the canonical subtour-elimination case the variant-01
 % reachability rule handles.
 
+#include "../../../encodings/traveling-salesman/variant-01.lp".
+
 vertex(a). vertex(b). vertex(c). vertex(d).
 
 % Cycle 1: a <-> b.

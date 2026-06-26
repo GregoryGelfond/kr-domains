@@ -8,6 +8,8 @@
 % admits its tour (c visited at time 1, d at time 1, both in [0,3]); the depots
 % have no window, so the close times are free. Total 4.
 
+#include "../../../encodings/traveling-salesman/variant-04.lp".
+
 vertex(a). vertex(b). vertex(c). vertex(d).
 
 edge(a,c,1). edge(c,a,1).

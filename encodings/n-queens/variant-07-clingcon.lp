@@ -2,6 +2,7 @@
 % @expect sat
 % @count  92
 % @note   clingcon's observable is the per-row column assignment q(R)=C, not queen_at/2; the shared invariant with the ASP variants is the 92-solution count
+% @elenctic solver clingcon
 %
 % The same 92 solutions as the ASP variants, recast for clingcon's CP backend.
 % One integer variable per row holds the column of that row's queen; an

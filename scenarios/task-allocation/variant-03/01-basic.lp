@@ -8,6 +8,8 @@
 % costs the same (a1: 1 + 5, or a2: 5 + 1), so grouping raises the total from 2 to
 % 6 with two co-optimal assignments.
 
+#include "../../../encodings/task-allocation/variant-03.lp".
+
 task(t1). task(t2).
 agent(a1). agent(a2).
 

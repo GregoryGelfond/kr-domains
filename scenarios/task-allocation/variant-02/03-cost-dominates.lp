@@ -9,6 +9,8 @@
 % (a1 runs them sequentially). A better makespan would require moving a task to a2
 % at a higher cost, which the lexicographic order forbids.
 
+#include "../../../encodings/task-allocation/variant-02.lp".
+
 task(t1). task(t2). task(t3).
 agent(a1). agent(a2).
 

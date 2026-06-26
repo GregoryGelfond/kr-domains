@@ -9,6 +9,8 @@
 % too: either the end is unreachable, or an included edge leaves an unreachable
 % vertex. So the program is UNSAT.
 
+#include "../../../encodings/shortest-path/variant-03.lp".
+
 vertex(s).
 vertex(a).
 vertex(b).

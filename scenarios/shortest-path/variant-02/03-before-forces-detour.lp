@@ -10,6 +10,8 @@
 % constraint pulls in s -> b as well. The optimum becomes s -> b -> a -> t at
 % cost 4.
 
+#include "../../../encodings/shortest-path/variant-02.lp".
+
 vertex(s).
 vertex(a).
 vertex(b).

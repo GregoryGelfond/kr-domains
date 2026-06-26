@@ -10,6 +10,8 @@
 % still needed for end-reachability, so the optimum is the "Y" { s->a, a->t, a->b }
 % at cost 3.
 
+#include "../../../encodings/shortest-path/variant-02.lp".
+
 vertex(s).
 vertex(a).
 vertex(b).

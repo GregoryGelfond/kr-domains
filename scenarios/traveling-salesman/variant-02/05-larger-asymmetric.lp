@@ -8,6 +8,8 @@
 % cycle; the two salesmen split them, for a total of 7, with two co-optimal
 % assignments.
 
+#include "../../../encodings/traveling-salesman/variant-02.lp".
+
 vertex(a). vertex(b). vertex(c). vertex(d). vertex(e).
 
 % Small cycle: a-b-a.

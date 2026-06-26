@@ -9,6 +9,8 @@
 % still reported: a3 takes t3 and t4, giving times a1 = 3, a2 = 4, a3 = 5 + 2 = 7,
 % so makespan max(3, 4, 7) = 7.
 
+#include "../../../encodings/task-allocation/variant-02.lp".
+
 task(t1). task(t2). task(t3). task(t4).
 agent(a1). agent(a2). agent(a3).
 

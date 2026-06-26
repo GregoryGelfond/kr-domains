@@ -10,6 +10,8 @@
 %   a-c-b-d-a  3 + 2 + 5 + 4 = 14
 % The optimum cycle is co-optimal in its two traversal directions.
 
+#include "../../../encodings/traveling-salesman/variant-01.lp".
+
 vertex(a). vertex(b). vertex(c). vertex(d).
 
 edge(a,b,1). edge(b,a,1).

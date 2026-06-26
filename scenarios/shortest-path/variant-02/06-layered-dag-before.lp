@@ -10,6 +10,8 @@
 % s -> a1 -> b2 -> c1 -> t and s -> a3 -> b2 -> c1 -> t). Both optima share the
 % b2 -> c1 -> t tail.
 
+#include "../../../encodings/shortest-path/variant-02.lp".
+
 vertex(s).
 vertex(a1).  vertex(a2).  vertex(a3).
 vertex(b1).  vertex(b2).  vertex(b3).

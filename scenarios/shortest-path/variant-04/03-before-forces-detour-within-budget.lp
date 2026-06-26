@@ -9,6 +9,8 @@
 % forces b onto the path; the cheapest route satisfying both end-reachability and
 % the ordering is s -> b -> a -> t, weight 4, cost 3, within maximum_cost(100).
 
+#include "../../../encodings/shortest-path/variant-04.lp".
+
 vertex(s).
 vertex(a).
 vertex(b).

@@ -9,6 +9,8 @@
 % optimizer avoids a2 (s -> a2 has weight 4 and a2 aids no feasible path), so the
 % answer is dictated by before(b3,t) alone: s -> a3 -> b3 -> c3 -> t at weight 6.
 
+#include "../../../encodings/shortest-path/variant-02.lp".
+
 vertex(s).
 vertex(a1).  vertex(a2).  vertex(a3).
 vertex(b1).  vertex(b2).  vertex(b3).

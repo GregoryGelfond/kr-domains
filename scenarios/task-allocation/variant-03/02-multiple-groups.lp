@@ -8,6 +8,8 @@
 % makes every group-to-agent combination cost the same: 6 per group, 12 overall,
 % with four co-optimal assignments.
 
+#include "../../../encodings/task-allocation/variant-03.lp".
+
 task(t1). task(t2). task(t3). task(t4).
 agent(a1). agent(a2).
 

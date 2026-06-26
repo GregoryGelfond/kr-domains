@@ -8,6 +8,8 @@
 % max_revisit_interval(c,10) and (d,10) sit well above the tour_time of 2, so the
 % surveillance bound holds without changing the optimum. Total 4.
 
+#include "../../../encodings/traveling-salesman/variant-05.lp".
+
 vertex(a). vertex(b). vertex(c). vertex(d).
 
 edge(a,c,1). edge(c,a,1).

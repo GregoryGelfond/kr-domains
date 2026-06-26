@@ -5,6 +5,8 @@
 % takes at least 4 (a1: 5, a2: 4), so no agent and start time satisfy the window.
 % The program is UNSAT.
 
+#include "../../../encodings/task-allocation/variant-04.lp".
+
 task(t1).
 agent(a1). agent(a2).
 

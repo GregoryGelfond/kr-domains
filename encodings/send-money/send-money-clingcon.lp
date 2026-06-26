@@ -2,6 +2,7 @@
 % @expect sat
 % @count  1
 % @assign { digit(s)=9, digit(e)=5, digit(n)=6, digit(d)=7, digit(m)=1, digit(o)=0, digit(r)=8, digit(y)=2 }
+% @elenctic solver clingcon
 %
 % The same cryptarithmetic puzzle as send-money.lp, encoded natively in clingcon:
 % each letter is a CSP integer in [0, 9], the leading digits are nonzero by &sum

@@ -7,6 +7,8 @@
 % The variant-01 triangle. With no before/after facts, variant-02 reduces to
 % variant-01: the direct edge a -> c (cost 3) loses to a -> b -> c (cost 2).
 
+#include "../../../encodings/shortest-path/variant-02.lp".
+
 vertex(a).
 vertex(b).
 vertex(c).

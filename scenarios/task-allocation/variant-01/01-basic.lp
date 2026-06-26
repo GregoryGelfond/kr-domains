@@ -7,6 +7,8 @@
 % Both agents can take both tasks. The cheapest agent per task is a1 for t1
 % (cost 3) and a2 for t2 (cost 2), for a total of 5.
 
+#include "../../../encodings/task-allocation/variant-01.lp".
+
 task(t1).
 task(t2).
 

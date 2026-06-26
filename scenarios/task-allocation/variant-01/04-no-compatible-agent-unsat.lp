@@ -6,6 +6,8 @@
 % satisfied for t2 (zero candidates against a lower bound of 1), so the program
 % is UNSAT.
 
+#include "../../../encodings/task-allocation/variant-01.lp".
+
 task(t1).
 task(t2).
 

@@ -11,6 +11,8 @@
 % maximum_cost(15) rules that path out, forcing a heavier-weight route whose
 % cost stays in budget. The two optima share the b2 -> c1 -> t tail.
 
+#include "../../../encodings/shortest-path/variant-03.lp".
+
 vertex(s).
 vertex(a1).  vertex(a2).  vertex(a3).
 vertex(b1).  vertex(b2).  vertex(b3).

@@ -7,6 +7,8 @@
 % and t2 run back-to-back (either order); each has duration 3 in a [0,10] window,
 % so the 6 units fit easily. Cost is 2 regardless of order.
 
+#include "../../../encodings/task-allocation/variant-04.lp".
+
 task(t1). task(t2).
 agent(a1).
 

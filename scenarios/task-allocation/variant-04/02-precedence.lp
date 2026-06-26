@@ -7,6 +7,8 @@
 % starts. The tasks go to different agents, so this is purely a timing constraint.
 % Cost-min is unchanged at 2; the schedule places t1's end at or before t2's start.
 
+#include "../../../encodings/task-allocation/variant-04.lp".
+
 task(t1). task(t2).
 agent(a1). agent(a2).
 

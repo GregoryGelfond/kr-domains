@@ -5,6 +5,8 @@
 % exist, but nothing reaches b. Subset 2 forces b onto the tour, yet b has no
 % incoming tour edge, so the program is UNSAT.
 
+#include "../../encodings/equality-generalized-tsp/egtsp.lp".
+
 vertex(s). vertex(a). vertex(b).
 
 edge(s,a,1).

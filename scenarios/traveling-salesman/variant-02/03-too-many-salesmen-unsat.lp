@@ -6,6 +6,8 @@
 % the first (forbidden by the one-salesman-per-non-start-vertex constraint), and a
 % salesman that traverses nothing fails returns-to-start. So the program is UNSAT.
 
+#include "../../../encodings/traveling-salesman/variant-02.lp".
+
 vertex(a). vertex(b). vertex(c).
 
 edge(a,b,1). edge(b,c,1). edge(c,a,1).

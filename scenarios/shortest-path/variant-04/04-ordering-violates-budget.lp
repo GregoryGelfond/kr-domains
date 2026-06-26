@@ -6,6 +6,8 @@
 % out. Any path that avoids b violates before(b,t), so no model satisfies both
 % layers.
 
+#include "../../../encodings/shortest-path/variant-04.lp".
+
 vertex(s).
 vertex(a).
 vertex(b).

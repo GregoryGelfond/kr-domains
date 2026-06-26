@@ -8,6 +8,8 @@
 % as the makespan tie-break when costs tie. Here cost-min is unique: t1 -> a1 (3),
 % t2 -> a2 (2), total 5, with makespan max(2, 1) = 2.
 
+#include "../../../encodings/task-allocation/variant-02.lp".
+
 task(t1). task(t2).
 agent(a1). agent(a2).
 

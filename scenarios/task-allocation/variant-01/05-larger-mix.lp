@@ -7,6 +7,8 @@
 % Each task takes its cheapest agent independently (no exclusivity): t1 -> a3 (2),
 % t2 -> a1 (3), t3 -> a2 (1), t4 -> a3 (3), for a total of 9. a3 serves two tasks.
 
+#include "../../../encodings/task-allocation/variant-01.lp".
+
 task(t1).
 task(t2).
 task(t3).

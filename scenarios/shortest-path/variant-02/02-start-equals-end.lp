@@ -8,6 +8,8 @@
 % reachable(V) :- start(V) base case makes the start reachable, and no
 % before/after facts apply.
 
+#include "../../../encodings/shortest-path/variant-02.lp".
+
 vertex(a).
 vertex(b).
 

@@ -8,6 +8,8 @@
 % t3 is ungrouped and free to take its own cheapest agent, a2 at cost 2. Total 8.
 % The two optima differ on the group's agent but both pin t3 to a2.
 
+#include "../../../encodings/task-allocation/variant-03.lp".
+
 task(t1). task(t2). task(t3).
 agent(a1). agent(a2).
 

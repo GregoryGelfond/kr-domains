@@ -18,16 +18,19 @@ Two trees, discovered together:
 - **`scenarios/<domain>/[variant-NN/]NN-<desc>.lp`** holds the problem instances (facts), each
   carrying the `@`-contract that says what the solver must return.
 
-A scenario pairs with its encoding by directory:
-`scenarios/shortest-path/variant-03/03-budget-forces-detour.lp` runs against
-`encodings/shortest-path/variant-03.lp` (and its `-clingcon` twin, when one exists). A
-**self-contained** domain (`send-money`, `n-queens`, `task-scheduling`) carries the contract in the
-encoding header and has no separate scenarios.
+A scenario builds on its encoding with an `#include`:
+`scenarios/shortest-path/variant-03/03-budget-forces-detour.lp` includes
+`encodings/shortest-path/variant-03.lp`. When an encoding has a `-clingcon` twin, each instance gets
+a sibling scenario (`…-clingcon.lp`) that includes the twin and declares `% @elenctic solver
+clingcon` — two distinct programs of the same problem, each with its own contract; the pure-ASP
+cases declare nothing and default to clingo. A **self-contained** domain (`send-money`, `n-queens`,
+`task-scheduling`) carries the contract in the encoding header and has no separate scenarios.
 
 ## The `@`-contract
 
 Each contract-bearing file opens with a doc-comment: a one-line summary, the contract as `@`-tagged
-lines, then the prose rationale.
+lines, then the prose rationale. An instance scenario then `#include`s its encoding and lists the
+instance facts; a self-contained encoding follows the contract with the encoding itself.
 
 ```
 % Scenario 03: Budget cap forces a higher-weight path.
@@ -40,6 +43,12 @@ lines, then the prose rationale.
 %   s -> t       weight 1, cost 10  (least weight, but over budget)
 %   s -> a -> t  weight 4, cost 2
 % maximum_cost(5) rules out the direct edge ...
+
+#include "../../../encodings/shortest-path/variant-03.lp".
+
+vertex(s). vertex(a). vertex(t).
+edge(s,t,1,10). edge(s,a,2,1). edge(a,t,2,1).
+start(s). end(t). maximum_cost(5).
 ```
 
 The tags assert satisfiability (`@expect`), the optimal cost vector (`@cost`), the number of optimal
@@ -66,36 +75,31 @@ The **n-queens** ladder shows what the contracts buy: six progressively-optimize
 one clingcon CP model, each carrying `@count 92`, so the suite certifies that every optimization step
 preserves the 92-solution set.
 
-## Running
+## Running with elenctic
 
-Everything runs in the pinned `pixi` environment (clingo 5.8, clingcon 5.2.1, Python 3.14).
+[elenctic](https://github.com/GregoryGelfond/elenctic) is the test runner. Point it at the corpus,
+or at any subtree, and it discovers every contract-bearing `.lp`, solves it under its declared
+solver, and checks it against its `@`-contract. There is no separate harness to maintain: the corpus
+is plain `.lp`, and elenctic runs it. Everything runs in the pinned `pixi` environment (clingo 5.8,
+clingcon 5.2.1); `pixi install` resolves the toolchain and elenctic on first run.
 
 ```sh
-pixi install                  # resolve the toolchain + elenctic (first run)
-
-pixi run test                 # the whole corpus through elenctic under pytest (118 cases)
-pixi run check                # ruff + mypy --strict + the test suite (the full gate)
-pixi run python -m corpus     # list every discovered case (encoding, instance, solver)
+pixi run test                                        # the whole corpus (118 cases): elenctic .
+pixi run -- elenctic scenarios                       # the instance scenarios (108 cases)
+pixi run -- elenctic scenarios/shortest-path         # one domain's scenarios
+pixi run -- elenctic scenarios/shortest-path/variant-03/01-basic.lp   # a single case
+pixi run -- elenctic . --explain                     # the run plan per case, without solving
 ```
 
-To run the corpus through elenctic's own CLI:
+A non-`PASS` prints a rendered diagnostic: `FAIL` (the program decided wrong), kept distinct from
+`UNDECIDED` (a budget-cut solve). The exit status is `0` (all pass), `1` (some `FAIL`/`UNDECIDED`),
+or `2` (a corpus or harness error).
+
+Each case `#include`s its encoding, so a case also runs directly on its solver:
 
 ```sh
-pixi run -- elenctic encodings scenarios            # solve and check every case
-pixi run -- elenctic encodings scenarios --explain  # the derived run plan, without solving
-```
-
-To inspect a single case's answer sets directly against the solver, run its encoding and scenario
-together:
-
-```sh
-pixi run -- clingo   --opt-mode=opt \
-  encodings/shortest-path/variant-03.lp \
-  scenarios/shortest-path/variant-03/03-budget-forces-detour.lp
-
-pixi run -- clingcon --opt-mode=opt \
-  encodings/shortest-path/variant-03-clingcon.lp \
-  scenarios/shortest-path/variant-03/03-budget-forces-detour.lp
+pixi run -- clingo   --opt-mode=opt scenarios/shortest-path/variant-03/03-budget-forces-detour.lp
+pixi run -- clingcon --opt-mode=opt scenarios/shortest-path/variant-03/03-budget-forces-detour-clingcon.lp
 ```
 
 A self-contained encoding runs on its own: `pixi run -- clingo encodings/send-money/send-money.lp`.
