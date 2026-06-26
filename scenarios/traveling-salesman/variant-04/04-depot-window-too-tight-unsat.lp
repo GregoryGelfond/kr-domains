@@ -10,11 +10,17 @@
 
 #include "../../../encodings/traveling-salesman/variant-04.lp".
 
-vertex(a). vertex(b).
+vertex(a; b).
 
-edge(a,b,1). edge(b,a,1).
+edge(
+    a,b,1;
+    b,a,1
+).
 
-edge_time(a,b,3). edge_time(b,a,3).
+edge_time(
+    a,b,3;
+    b,a,3
+).
 
 salesman(s1).
 depot(s1,a).

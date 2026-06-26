@@ -11,16 +11,29 @@
 
 #include "../../../encodings/traveling-salesman/variant-05-clingcon.lp".
 
-vertex(a). vertex(b). vertex(c). vertex(d).
+vertex(a; b; c; d).
 
-edge(a,c,1). edge(c,a,1).
-edge(b,d,1). edge(d,b,1).
+edge(
+    a,c,1;
+    c,a,1;
+    b,d,1;
+    d,b,1
+).
 
-edge_time(a,c,1). edge_time(c,a,1).
-edge_time(b,d,1). edge_time(d,b,1).
+edge_time(
+    a,c,1;
+    c,a,1;
+    b,d,1;
+    d,b,1
+).
 
-salesman(s1). salesman(s2).
-depot(s1,a). depot(s2,b).
+salesman(s1; s2).
+depot(
+    s1,a;
+    s2,b
+).
 
-max_revisit_interval(c,10).
-max_revisit_interval(d,10).
+max_revisit_interval(
+    c,10;
+    d,10
+).

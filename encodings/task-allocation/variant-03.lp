@@ -23,8 +23,10 @@
 1{ assigned_to(A,T) : agent(A), compatible_with(A,T) }1 :- task(T).
 
 % Tasks sharing a group go to the same agent.
-:- in_group(T1,G), in_group(T2,G),
-   assigned_to(A1,T1), assigned_to(A2,T2),
+:- in_group(T1,G),
+   in_group(T2,G),
+   assigned_to(A1,T1),
+   assigned_to(A2,T2),
    A1 != A2.
 
 % Solver directives

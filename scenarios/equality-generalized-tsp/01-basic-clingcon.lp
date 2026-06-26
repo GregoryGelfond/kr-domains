@@ -10,14 +10,24 @@
 
 #include "../../encodings/equality-generalized-tsp/egtsp-clingcon.lp".
 
-vertex(s). vertex(a). vertex(b). vertex(c). vertex(d).
+vertex(s; a; b; c; d).
 
-edge(s,a,1). edge(s,b,5).
-edge(a,c,1). edge(a,d,5).
-edge(b,c,5). edge(b,d,5).
-edge(c,s,1). edge(d,s,5).
+edge(
+    s,a,1;
+    s,b,5;
+    a,c,1;
+    a,d,5;
+    b,c,5;
+    b,d,5;
+    c,s,1;
+    d,s,5
+).
 
 start(s).
 
-in_subset(a,1). in_subset(b,1).
-in_subset(c,2). in_subset(d,2).
+in_subset(
+    a,1;
+    b,1;
+    c,2;
+    d,2
+).

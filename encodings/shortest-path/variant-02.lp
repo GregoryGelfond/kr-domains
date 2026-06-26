@@ -25,12 +25,21 @@
 { included(Src,Dst,C) : edge(Src,Dst,C) }.
 
 % reachable_from(X,Y): Y is reachable from X along included edges (transitive).
-reachable_from(Src,Dst) :- included(Src,Dst,_).
-reachable_from(Src,Dst) :- vertex(Tmp), included(Src,Tmp,_), reachable_from(Tmp,Dst).
+reachable_from(Src,Dst) :-
+    included(Src,Dst,_).
+
+reachable_from(Src,Dst) :-
+    vertex(Tmp),
+    included(Src,Tmp,_),
+    reachable_from(Tmp,Dst).
 
 % reachable(V): V is reachable from the start.
-reachable(Src) :- start(Src).
-reachable(Dst) :- start(Src), reachable_from(Src,Dst).
+reachable(Src) :-
+    start(Src).
+
+reachable(Dst) :-
+    start(Src),
+    reachable_from(Src,Dst).
 
 % The end must be reachable from the start.
 :- end(Src), not reachable(Src).

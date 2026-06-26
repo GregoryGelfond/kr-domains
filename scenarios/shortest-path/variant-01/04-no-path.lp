@@ -7,13 +7,12 @@
 
 #include "../../../encodings/shortest-path/variant-01.lp".
 
-vertex(a).
-vertex(b).
-vertex(c).
-vertex(d).
+vertex(a; b; c; d).
 
-edge(a,b,1).
-edge(c,d,1).
+edge(
+    a,b,1;
+    c,d,1
+).
 
 start(a).
 end(d).

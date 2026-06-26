@@ -22,6 +22,7 @@ subset(S) :- in_subset(_,S).
 
 % visited(V): V is on the tour. Exactly one vertex per subset, plus the start.
 1 { visited(V) : in_subset(V,S) } 1 :- subset(S).
+
 visited(V) :- start(V).
 
 % The start must not be a member of any subset.

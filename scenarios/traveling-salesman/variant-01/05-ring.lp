@@ -10,20 +10,34 @@
 
 #include "../../../encodings/traveling-salesman/variant-01.lp".
 
-vertex(a). vertex(b). vertex(c). vertex(d). vertex(e).
+vertex(a; b; c; d; e).
 
 % Ring edges (both directions, cost 1).
-edge(a,b,1). edge(b,a,1).
-edge(b,c,1). edge(c,b,1).
-edge(c,d,1). edge(d,c,1).
-edge(d,e,1). edge(e,d,1).
-edge(e,a,1). edge(a,e,1).
+edge(
+    a,b,1;
+    b,a,1;
+    b,c,1;
+    c,b,1;
+    c,d,1;
+    d,c,1;
+    d,e,1;
+    e,d,1;
+    e,a,1;
+    a,e,1
+).
 
 % Diagonal shortcuts (both directions, cost 5).
-edge(a,c,5). edge(c,a,5).
-edge(a,d,5). edge(d,a,5).
-edge(b,d,5). edge(d,b,5).
-edge(b,e,5). edge(e,b,5).
-edge(c,e,5). edge(e,c,5).
+edge(
+    a,c,5;
+    c,a,5;
+    a,d,5;
+    d,a,5;
+    b,d,5;
+    d,b,5;
+    b,e,5;
+    e,b,5;
+    c,e,5;
+    e,c,5
+).
 
 start(a).

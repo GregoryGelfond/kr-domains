@@ -23,6 +23,7 @@
 % reachable(V): V is reachable from the start along included edges.
 reachable(Src) :-
     start(Src).
+
 reachable(Dst) :-
     reachable(Src), included(Src,Dst,_),
     vertex(Src), vertex(Dst).

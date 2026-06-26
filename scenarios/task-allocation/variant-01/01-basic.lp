@@ -9,13 +9,13 @@
 
 #include "../../../encodings/task-allocation/variant-01.lp".
 
-task(t1).
-task(t2).
+task(t1; t2).
 
-agent(a1).
-agent(a2).
+agent(a1; a2).
 
-cost_of(a1,t1,3).
-cost_of(a2,t1,5).
-cost_of(a1,t2,4).
-cost_of(a2,t2,2).
+cost_of(
+    a1,t1,3;
+    a2,t1,5;
+    a1,t2,4;
+    a2,t2,2
+).

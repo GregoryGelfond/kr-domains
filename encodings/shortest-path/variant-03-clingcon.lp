@@ -25,15 +25,27 @@
 #defined end/1.
 #defined maximum_cost/1.
 
-% Domain encoding (ASP, unchanged from the baseline)
+% Domain encoding
+
+% included(X,Y,W,C): the edge from X to Y (weight W, resource cost C) lies on
+% the candidate path. Any subset of edges may be included.
 
 { included(Src,Dst,W,C) : edge(Src,Dst,W,C) }.
 
-reachable(Src) :- start(Src).
-reachable(Dst) :- reachable(Src), included(Src,Dst,_,_),
-                  vertex(Src), vertex(Dst).
+% reachable(V): V is reachable from the start along included edges.
+reachable(Src) :-
+    start(Src).
 
+reachable(Dst) :-
+    reachable(Src),
+    included(Src,Dst,_,_),
+    vertex(Src),
+    vertex(Dst).
+
+% The end must be reachable from the start.
 :- end(Src), not reachable(Src).
+
+% No vertex can be reached from the start if it is not included.
 :- included(Src,_,_,_), not reachable(Src).
 
 % ASP/CSP bridge
@@ -43,15 +55,16 @@ reachable(Dst) :- reachable(Src), included(Src,Dst,_,_),
 
 % Force x(...) to mirror the truth of included(...).
 :- included(Src,Dst,W,C), &sum { x(Src,Dst,W,C) } = 0.
-:- edge(Src,Dst,W,C), not included(Src,Dst,W,C),
+
+:- edge(Src,Dst,W,C),
+   not included(Src,Dst,W,C),
    &sum { x(Src,Dst,W,C) } = 1.
 
 % Hard linear constraint (clingcon)
 
 % Resource-cost cap. The CP backend propagates this bound during search,
 % pruning partial assignments that already overflow the budget.
-&sum { C*x(Src,Dst,W,C) : edge(Src,Dst,W,C) } <= M
-    :- maximum_cost(M).
+&sum { C*x(Src,Dst,W,C) : edge(Src,Dst,W,C) } <= M :- maximum_cost(M).
 
 % Optimization (ASP)
 

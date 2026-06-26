@@ -10,9 +10,16 @@
 
 #include "../../../encodings/traveling-salesman/variant-03.lp".
 
-vertex(a). vertex(b). vertex(c).
+vertex(a; b; c).
 
-edge(a,b,1). edge(b,c,1). edge(c,a,1).
+edge(
+    a,b,1;
+    b,c,1;
+    c,a,1
+).
 
-salesman(s1). salesman(s2).
-depot(s1,a). depot(s2,b).
+salesman(s1; s2).
+depot(
+    s1,a;
+    s2,b
+).

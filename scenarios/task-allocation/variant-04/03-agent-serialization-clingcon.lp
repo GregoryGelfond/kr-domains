@@ -10,14 +10,20 @@
 
 #include "../../../encodings/task-allocation/variant-04-clingcon.lp".
 
-task(t1). task(t2).
+task(t1; t2).
 agent(a1).
 
-cost_of(a1,t1,1).
-cost_of(a1,t2,1).
+cost_of(
+    a1,t1,1;
+    a1,t2,1
+).
 
-completion_time(a1,t1,3).
-completion_time(a1,t2,3).
+completion_time(
+    a1,t1,3;
+    a1,t2,3
+).
 
-time_window(t1,0,10).
-time_window(t2,0,10).
+time_window(
+    t1,0,10;
+    t2,0,10
+).

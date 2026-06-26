@@ -8,14 +8,14 @@
 
 #include "../../../encodings/task-allocation/variant-01.lp".
 
-task(t1).
-task(t2).
+task(t1; t2).
 
-agent(a1).
-agent(a2).
-agent(a3).
+agent(a1; a2; a3).
 
-cost_of(a1,t1,3).
-cost_of(a2,t1,5).
-cost_of(a3,t1,4).
+cost_of(
+    a1,t1,3;
+    a2,t1,5;
+    a3,t1,4
+).
+
 % No cost_of fact for t2: t2 has no compatible agent.

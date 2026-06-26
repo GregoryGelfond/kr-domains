@@ -10,12 +10,18 @@
 
 #include "../../../encodings/traveling-salesman/variant-01.lp".
 
-vertex(a). vertex(b). vertex(c). vertex(d).
+vertex(a; b; c; d).
 
 % Cycle 1: a <-> b.
-edge(a,b,1). edge(b,a,1).
+edge(
+    a,b,1;
+    b,a,1
+).
 
 % Cycle 2: c <-> d. Disconnected from cycle 1.
-edge(c,d,1). edge(d,c,1).
+edge(
+    c,d,1;
+    d,c,1
+).
 
 start(a).

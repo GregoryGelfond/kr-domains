@@ -11,11 +11,12 @@
 
 #include "../../../encodings/shortest-path/variant-03-clingcon.lp".
 
-vertex(a).
-vertex(b).
+vertex(a; b).
 
-edge(a,b,5,1).
-edge(b,a,5,1).
+edge(
+    a,b,5,1;
+    b,a,5,1
+).
 
 start(a).
 end(a).

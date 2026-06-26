@@ -24,20 +24,36 @@
 #defined after/2.
 #defined maximum_cost/1.
 
-% Domain encoding (ASP, unchanged from the baseline)
+% Domain encoding
 
+% included(X,Y,W,C): the edge from X to Y (weight W, resource cost C) lies on the
+% candidate path. Any subset of edges may be included.
 { included(Src,Dst,W,C) : edge(Src,Dst,W,C) }.
 
-reachable_from(Src,Dst) :- included(Src,Dst,_,_).
-reachable_from(Src,Dst) :- vertex(Tmp), included(Src,Tmp,_,_),
-                           reachable_from(Tmp,Dst).
+% reachable_from(X,Y): Y is reachable from X along included edges (transitive).
+reachable_from(Src,Dst) :-
+    included(Src,Dst,_,_).
 
-reachable(Src) :- start(Src).
-reachable(Dst) :- start(Src), reachable_from(Src,Dst).
+reachable_from(Src,Dst) :-
+    vertex(Tmp),
+    included(Src,Tmp,_,_),
+    reachable_from(Tmp,Dst).
 
+% reachable(V): V is reachable from the start.
+reachable(Src) :-
+    start(Src).
+
+reachable(Dst) :-
+    start(Src),
+    reachable_from(Src,Dst).
+
+% The end must be reachable from the start.
 :- end(Src), not reachable(Src).
+
+% No vertex should be reachable without being included.
 :- included(Src,_,_,_), not reachable(Src).
 
+% Respect the ordering constraints.
 :- before(X,Y), reachable(Y), not reachable_from(X,Y).
 :- after(X,Y), reachable(Y), not reachable_from(Y,X).
 
@@ -48,15 +64,16 @@ reachable(Dst) :- start(Src), reachable_from(Src,Dst).
 
 % Force x(...) to mirror the truth of included(...).
 :- included(Src,Dst,W,C), &sum { x(Src,Dst,W,C) } = 0.
-:- edge(Src,Dst,W,C), not included(Src,Dst,W,C),
+
+:- edge(Src,Dst,W,C),
+   not included(Src,Dst,W,C),
    &sum { x(Src,Dst,W,C) } = 1.
 
 % Hard linear constraint (clingcon)
 
 % Resource-cost cap. The CP backend propagates this bound during search,
 % pruning partial assignments that already overflow the budget.
-&sum { C*x(Src,Dst,W,C) : edge(Src,Dst,W,C) } <= M
-    :- maximum_cost(M).
+&sum { C*x(Src,Dst,W,C) : edge(Src,Dst,W,C) } <= M :- maximum_cost(M).
 
 % Optimization (ASP)
 

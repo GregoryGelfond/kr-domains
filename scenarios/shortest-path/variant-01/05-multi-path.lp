@@ -13,18 +13,16 @@
 
 #include "../../../encodings/shortest-path/variant-01.lp".
 
-vertex(s).
-vertex(a).
-vertex(b).
-vertex(c).
-vertex(t).
+vertex(s; a; b; c; t).
 
-edge(s,t,10).
-edge(s,a,4).
-edge(a,t,4).
-edge(s,b,1).
-edge(b,c,1).
-edge(c,t,1).
+edge(
+    s,t,10;
+    s,a,4;
+    a,t,4;
+    s,b,1;
+    b,c,1;
+    c,t,1
+).
 
 start(s).
 end(t).

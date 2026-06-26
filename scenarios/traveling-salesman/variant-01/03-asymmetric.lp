@@ -11,16 +11,30 @@
 
 #include "../../../encodings/traveling-salesman/variant-01.lp".
 
-vertex(a). vertex(b). vertex(c). vertex(d).
+vertex(a; b; c; d).
 
 % Cheap clockwise direction.
-edge(a,b,1). edge(b,c,1). edge(c,d,1). edge(d,a,1).
+edge(
+    a,b,1;
+    b,c,1;
+    c,d,1;
+    d,a,1
+).
 
 % Expensive counter-clockwise direction.
-edge(b,a,10). edge(c,b,10). edge(d,c,10). edge(a,d,10).
+edge(
+    b,a,10;
+    c,b,10;
+    d,c,10;
+    a,d,10
+).
 
 % Diagonals (symmetric).
-edge(a,c,5). edge(c,a,5).
-edge(b,d,5). edge(d,b,5).
+edge(
+    a,c,5;
+    c,a,5;
+    b,d,5;
+    d,b,5
+).
 
 start(a).

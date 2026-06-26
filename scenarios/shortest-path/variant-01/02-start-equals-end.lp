@@ -10,11 +10,12 @@
 
 #include "../../../encodings/shortest-path/variant-01.lp".
 
-vertex(a).
-vertex(b).
+vertex(a; b).
 
-edge(a,b,5).
-edge(b,a,5).
+edge(
+    a,b,5;
+    b,a,5
+).
 
 start(a).
 end(a).

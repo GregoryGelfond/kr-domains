@@ -64,11 +64,13 @@
 % direction becomes a linear constraint on the CSP variables.
 { first(T1,T2) } :- same_agent(T1,T2), T1 < T2.
 
-&sum { end_time(T1) - start_time(T2) } <= 0
-    :- first(T1,T2).
+&sum { end_time(T1) - start_time(T2) } <= 0 :-
+    first(T1,T2).
 
-&sum { end_time(T2) - start_time(T1) } <= 0
-    :- same_agent(T1,T2), T1 < T2, not first(T1,T2).
+&sum { end_time(T2) - start_time(T1) } <= 0 :-
+    same_agent(T1,T2),
+    T1 < T2,
+    not first(T1,T2).
 
 % Solver directives
 

@@ -8,13 +8,17 @@
 
 #include "../../encodings/equality-generalized-tsp/egtsp-clingcon.lp".
 
-vertex(s). vertex(a). vertex(b).
+vertex(s; a; b).
 
-edge(s,a,1).
-edge(a,s,1).
-edge(b,s,1).
+edge(
+    s,a,1;
+    a,s,1;
+    b,s,1
+).
 
 start(s).
 
-in_subset(a,1).
-in_subset(b,2).
+in_subset(
+    a,1;
+    b,2
+).

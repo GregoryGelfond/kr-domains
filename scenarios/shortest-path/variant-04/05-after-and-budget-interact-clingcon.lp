@@ -15,16 +15,15 @@
 
 #include "../../../encodings/shortest-path/variant-04-clingcon.lp".
 
-vertex(s).
-vertex(a).
-vertex(b).
-vertex(t).
+vertex(s; a; b; t).
 
-edge(s,t,1,100).
-edge(s,a,3,1).
-edge(a,t,3,1).
-edge(s,b,2,1).
-edge(b,t,2,1).
+edge(
+    s,t,1,100;
+    s,a,3,1;
+    a,t,3,1;
+    s,b,2,1;
+    b,t,2,1
+).
 
 start(s).
 end(t).

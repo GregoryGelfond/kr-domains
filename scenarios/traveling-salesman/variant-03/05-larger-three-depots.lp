@@ -10,19 +10,32 @@
 
 #include "../../../encodings/traveling-salesman/variant-03.lp".
 
-vertex(a). vertex(b). vertex(c).
-vertex(d1). vertex(d2).
-vertex(e1). vertex(e2).
-vertex(f1). vertex(f2).
+vertex(a; b; c; d1; d2; e1; e2; f1; f2).
 
 % Cluster a -> d1 -> d2 -> a.
-edge(a,d1,1). edge(d1,d2,1). edge(d2,a,1).
+edge(
+    a,d1,1;
+    d1,d2,1;
+    d2,a,1
+).
 
 % Cluster b -> e1 -> e2 -> b.
-edge(b,e1,1). edge(e1,e2,1). edge(e2,b,1).
+edge(
+    b,e1,1;
+    e1,e2,1;
+    e2,b,1
+).
 
 % Cluster c -> f1 -> f2 -> c.
-edge(c,f1,1). edge(f1,f2,1). edge(f2,c,1).
+edge(
+    c,f1,1;
+    f1,f2,1;
+    f2,c,1
+).
 
-salesman(s1). salesman(s2). salesman(s3).
-depot(s1,a). depot(s2,b). depot(s3,c).
+salesman(s1; s2; s3).
+depot(
+    s1,a;
+    s2,b;
+    s3,c
+).

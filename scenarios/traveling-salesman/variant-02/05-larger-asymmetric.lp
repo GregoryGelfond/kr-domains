@@ -10,14 +10,22 @@
 
 #include "../../../encodings/traveling-salesman/variant-02.lp".
 
-vertex(a). vertex(b). vertex(c). vertex(d). vertex(e).
+vertex(a; b; c; d; e).
 
 % Small cycle: a-b-a.
-edge(a,b,1). edge(b,a,1).
+edge(
+    a,b,1;
+    b,a,1
+).
 
 % Larger cycle: a-c-d-e-a.
-edge(a,c,2). edge(c,d,1). edge(d,e,1). edge(e,a,1).
+edge(
+    a,c,2;
+    c,d,1;
+    d,e,1;
+    e,a,1
+).
 
 start(a).
 
-salesman(s1). salesman(s2).
+salesman(s1; s2).

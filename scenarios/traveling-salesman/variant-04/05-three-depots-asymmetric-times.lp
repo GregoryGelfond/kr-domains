@@ -14,20 +14,35 @@
 
 #include "../../../encodings/traveling-salesman/variant-04.lp".
 
-vertex(a). vertex(b). vertex(c).
-vertex(p). vertex(q). vertex(r).
+vertex(a; b; c; p; q; r).
 
-edge(a,p,1). edge(p,a,1).
-edge(b,q,1). edge(q,b,1).
-edge(c,r,1). edge(r,c,1).
+edge(
+    a,p,1;
+    p,a,1;
+    b,q,1;
+    q,b,1;
+    c,r,1;
+    r,c,1
+).
 
-edge_time(a,p,2). edge_time(p,a,1).
-edge_time(b,q,1). edge_time(q,b,3).
-edge_time(c,r,3). edge_time(r,c,2).
+edge_time(
+    a,p,2;
+    p,a,1;
+    b,q,1;
+    q,b,3;
+    c,r,3;
+    r,c,2
+).
 
-salesman(s1). salesman(s2). salesman(s3).
-depot(s1,a). depot(s2,b). depot(s3,c).
+salesman(s1; s2; s3).
+depot(
+    s1,a;
+    s2,b;
+    s3,c
+).
 
-time_window(p,0,3).
-time_window(q,0,2).
-time_window(r,0,4).
+time_window(
+    p,0,3;
+    q,0,2;
+    r,0,4
+).

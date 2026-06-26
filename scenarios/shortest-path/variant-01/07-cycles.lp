@@ -11,19 +11,30 @@
 
 #include "../../../encodings/shortest-path/variant-01.lp".
 
-vertex(s).
-vertex(a). vertex(b). vertex(c).
-vertex(d). vertex(e).
-vertex(t).
+vertex(s; a; b; c; d; e; t).
 
 % Forward chain (weight 4 total)
-edge(s,a,1). edge(a,b,1). edge(b,c,1). edge(c,t,1).
+edge(
+    s,a,1;
+    a,b,1;
+    b,c,1;
+    c,t,1
+).
 
 % Cheaper alternate route (weight 3 total)
-edge(s,d,1). edge(d,e,1). edge(e,t,1).
+edge(
+    s,d,1;
+    d,e,1;
+    e,t,1
+).
 
 % Back-edges, each forming a cycle among reachable vertices.
-edge(b,a,1). edge(c,b,1). edge(e,d,1). edge(t,c,1).
+edge(
+    b,a,1;
+    c,b,1;
+    e,d,1;
+    t,c,1
+).
 
 start(s).
 end(t).

@@ -8,9 +8,15 @@
 #include "../../../encodings/task-allocation/variant-04.lp".
 
 task(t1).
-agent(a1). agent(a2).
+agent(a1; a2).
 
-cost_of(a1,t1,1). cost_of(a2,t1,2).
-completion_time(a1,t1,5). completion_time(a2,t1,4).
+cost_of(
+    a1,t1,1;
+    a2,t1,2
+).
+completion_time(
+    a1,t1,5;
+    a2,t1,4
+).
 
 time_window(t1,0,3).

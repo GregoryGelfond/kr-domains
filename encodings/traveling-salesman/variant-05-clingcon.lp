@@ -29,12 +29,23 @@
 
 % traversed_by(Src,Dst,C,S): the edge from Src to Dst (cost C) is traversed by
 % salesman S. At most one outgoing and one incoming edge per (vertex, salesman).
-0{ traversed_by(Src,Dst,C,S) : edge(Src,Dst,C) }1 :- salesman(S), vertex(Src).
-0{ traversed_by(Src,Dst,C,S) : edge(Src,Dst,C) }1 :- salesman(S), vertex(Dst).
+0{ traversed_by(Src,Dst,C,S) : edge(Src,Dst,C) }1 :-
+    salesman(S),
+    vertex(Src).
+
+0{ traversed_by(Src,Dst,C,S) : edge(Src,Dst,C) }1 :-
+    salesman(S),
+    vertex(Dst).
 
 % visited_by(V,S): V is visited by S (reachable from S's depot).
-visited_by(Dst,S) :- depot(S,Src), traversed_by(Src,Dst,_,S).
-visited_by(Dst,S) :- vertex(Src), visited_by(Src,S), traversed_by(Src,Dst,_,S).
+visited_by(Dst,S) :-
+    depot(S,Src),
+    traversed_by(Src,Dst,_,S).
+
+visited_by(Dst,S) :-
+    vertex(Src),
+    visited_by(Src,S),
+    traversed_by(Src,Dst,_,S).
 
 % visited(V): V is visited by some salesman.
 visited(V) :- vertex(V), visited_by(V,_).
@@ -69,20 +80,24 @@ horizon(M) :- M = #sum{ ET,Src,Dst : edge_time(Src,Dst,ET) }.
 % Depot-outgoing hop: the first arrival sits at the depot arc's edge_time. The
 % not depot(S,Dst) guard excludes the self-loop, handled below.
 &sum { visit_time(Dst,S) } = ET :-
-    depot(S,Src), traversed_by(Src,Dst,_,S),
+    depot(S,Src),
+    traversed_by(Src,Dst,_,S),
     edge_time(Src,Dst,ET),
     not depot(S,Dst).
 
 % Intermediate hop: visit_time accumulates edge_time along a non-depot arc.
 &sum { visit_time(Dst,S) - visit_time(Src,S) } = ET :-
-    vertex(Src), traversed_by(Src,Dst,_,S),
+    vertex(Src),
+    traversed_by(Src,Dst,_,S),
     edge_time(Src,Dst,ET),
     not depot(S,Src), not depot(S,Dst).
 
 % Return-to-depot hop: the closing arc carries the last visit_time up to
 % tour_time(S), closing the cycle.
 &sum { tour_time(S) - visit_time(Src,S) } = ET :-
-    vertex(Src), depot(S,D), traversed_by(Src,D,_,S),
+    vertex(Src),
+    depot(S,D),
+    traversed_by(Src,D,_,S),
     edge_time(Src,D,ET),
     not depot(S,Src).
 
@@ -90,17 +105,21 @@ horizon(M) :- M = #sum{ ET,Src,Dst : edge_time(Src,Dst,ET) }.
 % that arc's edge_time. (Rare in TSP instances, but kept for parity with the
 % baseline.)
 &sum { tour_time(S) } = ET :-
-    depot(S,D), traversed_by(D,D,_,S), edge_time(D,D,ET).
+    depot(S,D),
+    traversed_by(D,D,_,S),
+    edge_time(D,D,ET).
 
 % Time windows (clingcon)
 
 % Bound visit_time(V,S) when V is on S's tour. The depot link above makes this one
 % rule cover depot windows too (the bound propagates to tour_time(S)).
 &sum { visit_time(V,S) } >= Min :-
-    visited_by(V,S), time_window(V,Min,_).
+    visited_by(V,S),
+    time_window(V,Min,_).
 
 &sum { visit_time(V,S) } <= Max :-
-    visited_by(V,S), time_window(V,_,Max).
+    visited_by(V,S),
+    time_window(V,_,Max).
 
 % Persistent-surveillance constraint (clingcon)
 
@@ -109,7 +128,8 @@ horizon(M) :- M = #sum{ ET,Src,Dst : edge_time(Src,Dst,ET) }.
 % above by the maximum revisit interval of every V it visits; a vertex with no
 % max_revisit_interval/2 fact is unconstrained.
 &sum { tour_time(S) } <= M :-
-    visited_by(V,S), max_revisit_interval(V,M).
+    visited_by(V,S),
+    max_revisit_interval(V,M).
 
 % Optimization (ASP)
 

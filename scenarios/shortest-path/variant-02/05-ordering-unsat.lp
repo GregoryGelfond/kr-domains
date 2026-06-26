@@ -8,12 +8,12 @@
 
 #include "../../../encodings/shortest-path/variant-02.lp".
 
-vertex(a).
-vertex(b).
-vertex(c).
+vertex(a; b; c).
 
-edge(a,b,1).
-edge(b,c,1).
+edge(
+    a,b,1;
+    b,c,1
+).
 
 start(a).
 end(c).

@@ -10,12 +10,20 @@
 
 #include "../../../encodings/task-allocation/variant-03.lp".
 
-task(t1). task(t2). task(t3).
-agent(a1). agent(a2).
+task(t1; t2; t3).
+agent(a1; a2).
 
-cost_of(a1,t1,1). cost_of(a2,t1,5).
-cost_of(a1,t2,5). cost_of(a2,t2,1).
-cost_of(a1,t3,3). cost_of(a2,t3,2).
+cost_of(
+    a1,t1,1;
+    a2,t1,5;
+    a1,t2,5;
+    a2,t2,1;
+    a1,t3,3;
+    a2,t3,2
+).
 
-in_group(t1,g1). in_group(t2,g1).
+in_group(
+    t1,g1;
+    t2,g1
+).
 % t3 is ungrouped.

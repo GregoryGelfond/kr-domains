@@ -13,13 +13,13 @@
 
 #include "../../../encodings/shortest-path/variant-03-clingcon.lp".
 
-vertex(s).
-vertex(a).
-vertex(t).
+vertex(s; a; t).
 
-edge(s,t,1,10).
-edge(s,a,2,1).
-edge(a,t,2,1).
+edge(
+    s,t,1,10;
+    s,a,2,1;
+    a,t,2,1
+).
 
 start(s).
 end(t).

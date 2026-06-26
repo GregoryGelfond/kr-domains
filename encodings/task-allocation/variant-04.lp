@@ -68,6 +68,7 @@ compatible_with(A,T) :- cost_of(A,T,_).
 % horizon(M) is the latest deadline in any window; time(S) enumerates the integer
 % points [0, M] that start_time/2 draws from.
 horizon(M) :- M = #max{ L : time_window(_,_,L) }.
+
 time(0..M) :- horizon(M).
 
 % end_time(T,E): task T ends at time E, its start plus the assigned agent's
@@ -87,6 +88,9 @@ same_group(T1,T2) :- in_group(T1,G), in_group(T2,G).
 % overlaps_with(T1,T2): the tasks' time intervals overlap (each starts strictly
 % before the other ends).
 overlaps_with(T1,T2) :-
-    start_time(T1,Start1), end_time(T1,End1),
-    start_time(T2,Start2), end_time(T2,End2),
-    Start1 < End2, Start2 < End1.
+    start_time(T1,Start1),
+    end_time(T1,End1),
+    start_time(T2,Start2),
+    end_time(T2,End2),
+    Start1 < End2,
+    Start2 < End1.

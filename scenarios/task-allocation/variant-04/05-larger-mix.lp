@@ -11,24 +11,41 @@
 
 #include "../../../encodings/task-allocation/variant-04.lp".
 
-task(t1). task(t2). task(t3). task(t4).
-agent(a1). agent(a2).
+task(t1; t2; t3; t4).
+agent(a1; a2).
 
-cost_of(a1,t1,1). cost_of(a2,t1,3).
-cost_of(a1,t2,3). cost_of(a2,t2,1).
-cost_of(a1,t3,2). cost_of(a2,t3,2).
-cost_of(a1,t4,3). cost_of(a2,t4,1).
+cost_of(
+    a1,t1,1;
+    a2,t1,3;
+    a1,t2,3;
+    a2,t2,1;
+    a1,t3,2;
+    a2,t3,2;
+    a1,t4,3;
+    a2,t4,1
+).
 
-completion_time(a1,t1,2). completion_time(a2,t1,2).
-completion_time(a1,t2,2). completion_time(a2,t2,2).
-completion_time(a1,t3,3). completion_time(a2,t3,3).
-completion_time(a1,t4,2). completion_time(a2,t4,2).
+completion_time(
+    a1,t1,2;
+    a2,t1,2;
+    a1,t2,2;
+    a2,t2,2;
+    a1,t3,3;
+    a2,t3,3;
+    a1,t4,2;
+    a2,t4,2
+).
 
-time_window(t1,0,10).
-time_window(t2,0,10).
-time_window(t3,0,10).
-time_window(t4,0,10).
+time_window(
+    t1,0,10;
+    t2,0,10;
+    t3,0,10;
+    t4,0,10
+).
 
-in_group(t1,g1). in_group(t3,g1).
+in_group(
+    t1,g1;
+    t3,g1
+).
 
 before(t2,t4).

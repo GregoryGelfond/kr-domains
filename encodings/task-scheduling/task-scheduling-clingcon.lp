@@ -32,16 +32,28 @@
 
 % The instance
 
-task(t1). task(t2).
-agent(a1). agent(a2).
+task(t1; t2).
 
-cost_of(a1,t1,1). cost_of(a1,t2,1).
-cost_of(a2,t1,5). cost_of(a2,t2,5).
+agent(a1; a2).
 
-completion_time(a1,t1,3). completion_time(a1,t2,3).
-completion_time(a2,t1,3). completion_time(a2,t2,3).
+cost_of(
+    a1,t1,1;
+    a1,t2,1;
+    a2,t1,5;
+    a2,t2,5
+).
 
-time_window(t1,0,6). time_window(t2,0,6).
+completion_time(
+    a1,t1,3;
+    a1,t2,3;
+    a2,t1,3;
+    a2,t2,3
+).
+
+time_window(
+    t1,0,6;
+    t2,0,6
+).
 
 % Domain encoding
 
@@ -66,8 +78,12 @@ time_window(t1,0,6). time_window(t2,0,6).
 % Two tasks on one agent may not overlap. A Boolean choice picks the order of each
 % same-agent pair, and the chosen direction becomes a linear constraint on the times.
 { first(T1,T2) } :- same_agent(T1,T2), T1 < T2.
-&sum { end_time(T1) - start_time(T2) } <= 0 :- first(T1,T2).
-&sum { end_time(T2) - start_time(T1) } <= 0 :- same_agent(T1,T2), T1 < T2, not first(T1,T2).
+
+&sum { end_time(T1) - start_time(T2) } <= 0 :-
+    first(T1,T2).
+
+&sum { end_time(T2) - start_time(T1) } <= 0 :-
+    same_agent(T1,T2), T1 < T2, not first(T1,T2).
 
 % Optimization
 

@@ -12,13 +12,21 @@
 
 #include "../../../encodings/traveling-salesman/variant-01.lp".
 
-vertex(a). vertex(b). vertex(c). vertex(d).
+vertex(a; b; c; d).
 
-edge(a,b,1). edge(b,a,1).
-edge(a,c,3). edge(c,a,3).
-edge(a,d,4). edge(d,a,4).
-edge(b,c,2). edge(c,b,2).
-edge(b,d,5). edge(d,b,5).
-edge(c,d,1). edge(d,c,1).
+edge(
+    a,b,1;
+    b,a,1;
+    a,c,3;
+    c,a,3;
+    a,d,4;
+    d,a,4;
+    b,c,2;
+    c,b,2;
+    b,d,5;
+    d,b,5;
+    c,d,1;
+    d,c,1
+).
 
 start(a).
