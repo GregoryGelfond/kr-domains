@@ -2,12 +2,5 @@
 # Machine/OS/editor cruft (.DS_Store, swap files, …) lives in the global
 # excludesfile (~/.config/git/ignore); keep only project-specific patterns here.
 
-# Python build artifacts (the test harness)
-__pycache__/
-*.py[cod]
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-
 # pixi environment (pixi.lock is committed; the env is not)
 /.pixi/

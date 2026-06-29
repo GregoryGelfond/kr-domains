@@ -1,8 +1,8 @@
 # Solver toolchain for kr-domains, pinned. Required baseline: `pixi run <cmd>` / `pixi shell`.
-# This corpus runs on two solvers, dispatched by elenctic per each case's declared solver (and
-# runnable directly, since every case #includes its encoding):
-#   * clingo    — the pure-ASP baseline encodings   (e.g. `clingo    send-money.lp`)
-#   * clingcon  — the constraint (CP) variants       (e.g. `clingcon  send-money-clingcon.lp`)
+# This corpus runs on two solvers, dispatched by elenctic per each case's declared solver (cases are
+# also runnable directly: a scenario #includes its encoding, a standalone program is self-contained):
+#   * clingo    — the pure-ASP cases       (e.g. `clingo   standalone/n-queens/variant-01.lp`)
+#   * clingcon  — the constraint (CP) cases (e.g. `clingcon standalone/send-money/send-money-clingcon.lp`)
 # clingcon is pinned to 5.2.1 to match the estate reference toolchain (krml, krml-poc).
 # clingo is declared explicitly — the baselines invoke it directly, not transitively — so
 # the manifest states both tools the corpus actually targets.

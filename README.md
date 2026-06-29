@@ -10,27 +10,34 @@ problems, written to be read; and it is **elenctic's client #1**, dogfooding the
 
 ## Layout
 
-Two trees, discovered together:
+Three trees, discovered together. The split is by *authored form* (open vs. closed):
 
-- **`encodings/<domain>/`** holds the reusable problem encodings. A baseline `variant-NN.lp` (pure
-  ASP, run by clingo) may be paired with a `variant-NN-clingcon.lp` twin that moves the numeric
-  layer into clingcon's CP backend.
-- **`scenarios/<domain>/[variant-NN/]NN-<desc>.lp`** holds the problem instances (facts), each
-  carrying the `@`-contract that says what the solver must return.
+- **`encodings/<domain>/`** holds the reusable **open** encodings: a problem schema with `#defined`
+  inputs and no contract of its own. A baseline `variant-NN.lp` (pure ASP, run by clingo) may be
+  paired with a `variant-NN-clingcon.lp` twin that moves the numeric layer into clingcon's CP backend.
+- **`scenarios/<domain>/[variant-NN/]NN-<desc>.lp`** holds the problem instances (facts) that
+  complete an encoding, each carrying the `@`-contract that says what the solver must return.
+- **`standalone/<problem>/`** holds the **closed** programs: the instance is baked in, the contract
+  rides in the file header, and the program runs on its own with no separate scenario (`n-queens`,
+  `send-money`, `task-scheduling`).
+
+Placement follows that line: a problem ships **standalone** when it carries one fixed instance and
+its contract inline, and as an **encoding + scenarios** pair when one reusable schema is exercised
+across many instances. (n-queens ships standalone at a fixed N = 8, though it could be posed as a
+schema over N.)
 
 A scenario builds on its encoding with an `#include`:
 `scenarios/shortest-path/variant-03/03-budget-forces-detour.lp` includes
 `encodings/shortest-path/variant-03.lp`. When an encoding has a `-clingcon` twin, each instance gets
 a sibling scenario (`…-clingcon.lp`) that includes the twin and declares `% @elenctic solver
-clingcon` — two distinct programs of the same problem, each with its own contract; the pure-ASP
-cases declare nothing and default to clingo. A **self-contained** domain (`send-money`, `n-queens`,
-`task-scheduling`) carries the contract in the encoding header and has no separate scenarios.
+clingcon`: two distinct programs of the same problem, each with its own contract; the pure-ASP cases
+declare nothing and default to clingo.
 
 ## The `@`-contract
 
 Each contract-bearing file opens with a doc-comment: a one-line summary, the contract as `@`-tagged
 lines, then the prose rationale. An instance scenario then `#include`s its encoding and lists the
-instance facts; a self-contained encoding follows the contract with the encoding itself.
+instance facts; a standalone program follows the contract with the encoding itself.
 
 ```
 % Scenario 03: Budget cap forces a higher-weight path.
@@ -59,15 +66,22 @@ grammar.
 
 ## Domains
 
-| Domain | Encodings | Cases | What it is |
+**Open encodings** (`encodings/` + `scenarios/`):
+
+| Domain | Variants | Cases | What it is |
 |---|---|---|---|
-| `shortest-path` | 4 variants (+2 clingcon) | 42 | minimum-cost path; before/after ordering; a resource-cost cap |
-| `task-allocation` | 4 variants (+1 clingcon) | 25 | minimum-cost agent assignment; makespan; task groups; scheduling |
-| `traveling-salesman` | 5 variants (+2 clingcon) | 35 | single and multi-salesman, multi-depot, time windows, surveillance |
-| `equality-generalized-tsp` | 2 encodings | 6 | one-in-a-set TSP (visit exactly one vertex per subset) |
-| `send-money` | 2 self-contained | 2 | the SEND + MORE = MONEY cryptarithm |
-| `n-queens` | 7 self-contained | 7 | 8-queens: a naive-to-optimized refinement ladder, plus a clingcon CP model |
-| `task-scheduling` | 1 self-contained clingcon | 1 | minimum-cost scheduling with a co-optimal timeline; the worked example of the clingcon theory-witness contracts (assign-optimal and the joint where-witness) |
+| `shortest-path` | 4 (+2 clingcon) | 42 | minimum-cost path; before/after ordering; a resource-cost cap |
+| `task-allocation` | 4 (+1 clingcon) | 25 | minimum-cost agent assignment; makespan; task groups; scheduling |
+| `traveling-salesman` | 5 (+2 clingcon) | 35 | single and multi-salesman, multi-depot, time windows, surveillance |
+| `equality-generalized-tsp` | 2 | 6 | one-in-a-set TSP (visit exactly one vertex per subset) |
+
+**Standalone** (`standalone/`, closed programs):
+
+| Problem | Programs | Cases | What it is |
+|---|---|---|---|
+| `n-queens` | 7 | 7 | 8-queens: a naive-to-optimized refinement ladder, plus a clingcon CP model |
+| `send-money` | 2 | 2 | the SEND + MORE = MONEY cryptarithm |
+| `task-scheduling` | 1 (clingcon) | 1 | minimum-cost scheduling with a co-optimal timeline; the worked example of the clingcon theory-witness contracts (assign-optimal and the joint where-witness) |
 
 This list is expected to grow as further domains and variants are added.
 
@@ -102,7 +116,7 @@ pixi run -- clingo   --opt-mode=opt scenarios/shortest-path/variant-03/03-budget
 pixi run -- clingcon --opt-mode=opt scenarios/shortest-path/variant-03/03-budget-forces-detour-clingcon.lp
 ```
 
-A self-contained encoding runs on its own: `pixi run -- clingo encodings/send-money/send-money.lp`.
+A standalone program runs on its own: `pixi run -- clingo standalone/send-money/send-money.lp`.
 
 ## License
 
