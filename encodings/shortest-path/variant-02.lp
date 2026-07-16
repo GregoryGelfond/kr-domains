@@ -20,9 +20,26 @@
 
 % Domain encoding
 
-% included(X,Y,C): the edge from X to Y (cost C) lies on the candidate path. Any
-% subset of edges may be included.
+% included(X,Y,C): the edge from X to Y (cost C) lies on the candidate path.
 { included(Src,Dst,C) : edge(Src,Dst,C) }.
+
+% Path structure. Together these four make the included edges a simple path: at
+% most one included edge leaves a vertex and at most one enters it, nothing
+% enters the start, and nothing leaves the end. The ordering constraints below
+% depend on this: on a path, reachable_from/2 is the visitation order, whereas
+% over an arbitrary edge set it is only reachability.
+%
+% Only the out-degree bound and the no-edge-out-of-the-end rule are independent.
+% The other two follow from them together with the no-dangling-edge constraint
+% below: capping out-degree makes the walk from the start deterministic,
+% no-dangling puts every included edge on that walk, nothing-leaves-end forces
+% the walk to terminate, and a terminating deterministic walk cannot revisit a
+% vertex. They are stated anyway, so that the object is read off the program
+% rather than derived.
+:- vertex(V), #count{ Dst,C : included(V,Dst,C) } > 1.
+:- vertex(V), #count{ Src,C : included(Src,V,C) } > 1.
+:- included(_,V,_), start(V).
+:- included(V,_,_), end(V).
 
 % reachable_from(X,Y): Y is reachable from X along included edges (transitive).
 reachable_from(Src,Dst) :-

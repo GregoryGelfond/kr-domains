@@ -19,8 +19,24 @@
 % Domain encoding
 
 % included(X,Y,W,C): the edge from X to Y (weight W, resource cost C) lies on
-% the candidate path. Any subset of edges may be included.
+% the candidate path.
 { included(Src,Dst,W,C) : edge(Src,Dst,W,C) }.
+
+% Path structure. Together these four make the included edges a simple path: at
+% most one included edge leaves a vertex and at most one enters it, nothing
+% enters the start, and nothing leaves the end.
+%
+% Only the out-degree bound and the no-edge-out-of-the-end rule are independent.
+% The other two follow from them together with the no-dangling-edge constraint
+% below: capping out-degree makes the walk from the start deterministic,
+% no-dangling puts every included edge on that walk, nothing-leaves-end forces
+% the walk to terminate, and a terminating deterministic walk cannot revisit a
+% vertex. They are stated anyway, so that the object is read off the program
+% rather than derived.
+:- vertex(V), #count{ Dst,W,C : included(V,Dst,W,C) } > 1.
+:- vertex(V), #count{ Src,W,C : included(Src,V,W,C) } > 1.
+:- included(_,V,_,_), start(V).
+:- included(V,_,_,_), end(V).
 
 % reachable(V): V is reachable from the start along included edges.
 reachable(Src) :-

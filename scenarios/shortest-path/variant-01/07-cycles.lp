@@ -5,9 +5,11 @@
 % @optimal { start(s), included(d,e,1), included(e,t,1), included(s,d,1), end(t) }
 %
 % Two s-to-t routes plus back-edges that form cycles among reachable vertices.
-% A back-edge raises cost without aiding reachability, so cost minimization takes
-% the cheaper cycle-free route, s -> d -> e -> t at weight 3, and leaves every
-% back-edge out.
+% No back-edge can be taken at all: b -> a, c -> b and e -> d would each give a
+% vertex a second predecessor, and t -> c would leave the end. So the path
+% structure disposes of the cycles, and the cost objective is left to choose
+% between the two genuine routes, taking s -> d -> e -> t at weight 3 over the
+% four-hop chain at 4.
 
 #include "../../../encodings/shortest-path/variant-01.lp".
 
