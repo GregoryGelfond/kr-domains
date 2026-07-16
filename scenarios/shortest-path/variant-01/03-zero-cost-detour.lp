@@ -1,21 +1,23 @@
-% Scenario 03: Zero-cost detour from a reachable vertex.
+% Scenario 03: Zero-cost detour, separated only by the tie-breaker.
 % @expect sat
-% @cost { 2 2 }
+% @cost { 2 1 }
 % @count optimal 1
-% @optimal { start(a), included(a,b,1), included(b,c,1), end(c) }
+% @optimal { start(a), included(a,c,2), end(c) }
 %
-% The path a -> b -> c costs 2. A zero-cost edge c -> d branches off the end:
-% both { a->b, b->c } and { a->b, b->c, c->d } reach c at cost 2, so only the
-% edge-count tie-breaker rules out the detour.
+% The direct edge a -> c costs 2. The detour a -> b -> c also costs 2, because
+% the b -> c leg is free: routing through b costs nothing extra. Both are
+% genuine paths, and the cost objective cannot separate them, so the edge-count
+% tie-breaker decides and the one-hop route wins. Without the tie-breaker both
+% routes are optimal; this is the case that pins it down.
 
 #include "../../../encodings/shortest-path/variant-01.lp".
 
-vertex(a; b; c; d).
+vertex(a; b; c).
 
 edge(
-    a,b,1;
-    b,c,1;
-    c,d,0
+    a,c,2;
+    a,b,2;
+    b,c,0
 ).
 
 start(a).
