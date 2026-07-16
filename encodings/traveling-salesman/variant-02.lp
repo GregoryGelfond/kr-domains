@@ -40,6 +40,9 @@ visited_by(Dst,S) :-
 % visited(V): V is visited by some salesman.
 visited(V) :- vertex(V), visited_by(V,_).
 
+% No salesman may traverse an edge leaving a vertex it does not visit.
+:- traversed_by(Src,_,_,S), not visited_by(Src,S).
+
 % Every vertex must be visited.
 :- vertex(V), not visited(V).
 
