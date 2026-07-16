@@ -6,7 +6,7 @@ clingcon constraint (CP) variants, where every documented expectation is a machi
 
 The corpus serves two purposes. It is a reference of worked encodings of classic combinatorial
 problems, written to be read; and it is **elenctic's client #1**, dogfooding the contract format.
-`pixi run test` solves all 118 cases across both solvers and verifies each against its contract.
+`pixi run test` solves all 135 cases across both solvers and verifies each against its contract.
 
 ## Layout
 
@@ -70,9 +70,9 @@ grammar.
 
 | Domain | Variants | Cases | What it is |
 |---|---|---|---|
-| `shortest-path` | 4 (+2 clingcon) | 42 | minimum-cost path; before/after ordering; a resource-cost cap |
+| `shortest-path` | 4 (+2 clingcon) | 53 | minimum-cost path; before/after ordering; a resource-cost cap |
 | `task-allocation` | 4 (+1 clingcon) | 25 | minimum-cost agent assignment; makespan; task groups; scheduling |
-| `traveling-salesman` | 5 (+2 clingcon) | 35 | single and multi-salesman, multi-depot, time windows, surveillance |
+| `traveling-salesman` | 5 (+2 clingcon) | 41 | single and multi-salesman, multi-depot, time windows, surveillance |
 | `equality-generalized-tsp` | 2 | 6 | one-in-a-set TSP (visit exactly one vertex per subset) |
 
 **Standalone** (`standalone/`, closed programs):
@@ -98,8 +98,8 @@ is plain `.lp`, and elenctic runs it. Everything runs in the pinned `pixi` envir
 clingcon 5.2.1); `pixi install` resolves the toolchain and elenctic on first run.
 
 ```sh
-pixi run test                                        # the whole corpus (118 cases): elenctic .
-pixi run -- elenctic scenarios                       # the instance scenarios (108 cases)
+pixi run test                                        # the whole corpus (135 cases): elenctic .
+pixi run -- elenctic scenarios                       # the instance scenarios (125 cases)
 pixi run -- elenctic scenarios/shortest-path         # one domain's scenarios
 pixi run -- elenctic scenarios/shortest-path/variant-03/01-basic.lp   # a single case
 pixi run -- elenctic . --explain                     # the run plan per case, without solving
