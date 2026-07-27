@@ -1,6 +1,7 @@
 # Corpus-drift gate. Every change must keep the corpus self-verifying: this runs the same gate as
-# local development — `pixi run check` (ruff + mypy --strict + the contract-checked cases on clingo
-# and clingcon) — against the committed lockfile, so the run is reproducible. elenctic is a public
+# local development — `pixi run check`, which is `elenctic .` over every contract-bearing case on
+# clingo and clingcon — against the committed lockfile, so the run is reproducible. There is no lint
+# or type-check step: the corpus is pure .lp, with no Python harness. elenctic is a public
 # dependency, so no credentials are needed.
 
 name: check
