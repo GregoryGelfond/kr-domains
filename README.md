@@ -118,6 +118,17 @@ pixi run -- clingcon --opt-mode=opt scenarios/shortest-path/variant-03/03-budget
 
 A standalone program runs on its own: `pixi run -- clingo standalone/send-money/send-money.lp`.
 
+## Versioning
+
+Tags are dated — `v2026.08.01` — because what varies here is how current the corpus is, not what it
+promises to a caller. A corpus exports no API, so the compatibility that `MAJOR.MINOR.PATCH` exists
+to communicate has nothing to attach to: adding a domain or correcting a contract cannot break
+anyone's build. A date says the one thing a reader of a corpus wants to know.
+
+Each tag records the elenctic release it was verified against, which is also pinned in
+`pixi.toml` — the corpus and its runner move independently, so neither one's version is derived
+from the other's.
+
 ## License
 
 MIT. Copyright (c) 2026 Gregory Gelfond. See [LICENSE](LICENSE).
