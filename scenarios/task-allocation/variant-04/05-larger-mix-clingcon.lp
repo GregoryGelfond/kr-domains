@@ -1,7 +1,7 @@
 % Scenario 05: All four mechanisms active at once. (clingcon)
 % @expect sat
 % @cost { 5 }
-% @cautious optimal { assigned_to(a1,t1), assigned_to(a1,t3), assigned_to(a2,t2), assigned_to(a2,t4), cost_of(a1,t1,1), cost_of(a1,t3,2), cost_of(a2,t2,1), cost_of(a2,t4,1) }
+% @cautious optimal { assigned_to(a1,t1), assigned_to(a1,t3), assigned_to(a2,t2), assigned_to(a2,t4), assigned_cost(a1,t1,1), assigned_cost(a1,t3,2), assigned_cost(a2,t2,1), assigned_cost(a2,t4,1) }
 % @elenctic solver clingcon
 %
 % Four tasks exercising grouping (t1 and t3 share an agent), precedence (t2 before

@@ -1,7 +1,7 @@
 % Scenario 01: Basic assignment with roomy time windows. (clingcon)
 % @expect sat
 % @cost { 2 }
-% @cautious optimal { assigned_to(a1,t1), assigned_to(a2,t2), cost_of(a1,t1,1), cost_of(a2,t2,1) }
+% @cautious optimal { assigned_to(a1,t1), assigned_to(a2,t2), assigned_cost(a1,t1,1), assigned_cost(a2,t2,1) }
 % @elenctic solver clingcon
 %
 % No groups or precedence, windows wide enough for anything, and the two tasks go

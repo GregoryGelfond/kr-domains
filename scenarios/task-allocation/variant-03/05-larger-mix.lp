@@ -2,7 +2,7 @@
 % @expect sat
 % @cost { 6 }
 % @count optimal 1
-% @optimal { assigned_to(a2,t1), assigned_to(a2,t2), assigned_to(a3,t3), assigned_to(a3,t4), cost_of(a2,t1,3), cost_of(a2,t2,1), cost_of(a3,t3,1), cost_of(a3,t4,1) }
+% @optimal { assigned_to(a2,t1), assigned_to(a2,t2), assigned_to(a3,t3), assigned_to(a3,t4), assigned_cost(a2,t1,3), assigned_cost(a2,t2,1), assigned_cost(a3,t3,1), assigned_cost(a3,t4,1) }
 %
 % Ungrouped, each task takes its cheapest agent for total 4. in_group(t1,g1) and
 % in_group(t2,g1) force t1 and t2 to share; the cheapest joint choice is a2

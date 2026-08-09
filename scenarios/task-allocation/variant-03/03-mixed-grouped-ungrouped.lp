@@ -2,7 +2,7 @@
 % @expect sat
 % @cost { 8 }
 % @count optimal 2
-% @cautious optimal { assigned_to(a2,t3), cost_of(a2,t3,2) }
+% @cautious optimal { assigned_to(a2,t3), assigned_cost(a2,t3,2) }
 %
 % t1 and t2 share group g1, so one agent takes both (best total 6, either agent).
 % t3 is ungrouped and free to take its own cheapest agent, a2 at cost 2. Total 8.

@@ -1,7 +1,7 @@
 % Scenario 03: One agent, forced serialization. (clingcon)
 % @expect sat
 % @cost { 2 }
-% @cautious optimal { assigned_to(a1,t1), assigned_to(a1,t2), cost_of(a1,t1,1), cost_of(a1,t2,1) }
+% @cautious optimal { assigned_to(a1,t1), assigned_to(a1,t2), assigned_cost(a1,t1,1), assigned_cost(a1,t2,1) }
 % @elenctic solver clingcon
 %
 % Only a1 exists, so both tasks land on it. Serialization forbids overlap, so t1

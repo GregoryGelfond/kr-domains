@@ -27,7 +27,12 @@
 #minimize{ M@1 : makespan(M) }.
 
 #show assigned_to/2.
-#show cost_of(A,T,C) : assigned_to(A,T), cost_of(A,T,C).
+% assigned_cost(A,T,C): the cost actually incurred — the cost table's entry for an
+% assignment that was in fact made. This is the relation the objective above sums
+% over; naming it makes it observable without also exposing the whole input table.
+assigned_cost(A,T,C) :- assigned_to(A,T), cost_of(A,T,C).
+
+#show assigned_cost/3.
 
 % Auxiliary atoms
 

@@ -1,7 +1,7 @@
 % Scenario 02: A precedence constraint orders the tasks in time.
 % @expect sat
 % @cost { 2 }
-% @cautious optimal { assigned_to(a1,t1), assigned_to(a2,t2), cost_of(a1,t1,1), cost_of(a2,t2,1) }
+% @cautious optimal { assigned_to(a1,t1), assigned_to(a2,t2), assigned_cost(a1,t1,1), assigned_cost(a2,t2,1) }
 %
 % The scenario-01 agents and costs, plus before(t1,t2): t1 must finish before t2
 % starts. The tasks go to different agents, so this is purely a timing constraint.

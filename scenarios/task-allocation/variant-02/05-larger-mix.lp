@@ -2,7 +2,7 @@
 % @expect sat
 % @cost { 9 7 }
 % @count optimal 1
-% @optimal { assigned_to(a1,t1), assigned_to(a2,t2), assigned_to(a3,t3), assigned_to(a3,t4), cost_of(a1,t1,2), cost_of(a2,t2,2), cost_of(a3,t3,2), cost_of(a3,t4,3) }
+% @optimal { assigned_to(a1,t1), assigned_to(a2,t2), assigned_to(a3,t3), assigned_to(a3,t4), assigned_cost(a1,t1,2), assigned_cost(a2,t2,2), assigned_cost(a3,t3,2), assigned_cost(a3,t4,3) }
 %
 % Cost-cheapest per task is unique: t1 -> a1 (2), t2 -> a2 (2), t3 -> a3 (2),
 % t4 -> a3 (3), total 9. The makespan tie-break does not bind, but its value is

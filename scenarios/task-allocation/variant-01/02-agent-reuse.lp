@@ -2,7 +2,7 @@
 % @expect sat
 % @cost { 6 }
 % @count optimal 1
-% @optimal { assigned_to(a1,t1), assigned_to(a1,t2), assigned_to(a1,t3), cost_of(a1,t1,1), cost_of(a1,t2,2), cost_of(a1,t3,3) }
+% @optimal { assigned_to(a1,t1), assigned_to(a1,t2), assigned_to(a1,t3), assigned_cost(a1,t1,1), assigned_cost(a1,t2,2), assigned_cost(a1,t3,3) }
 %
 % a1 is strictly cheapest for all three tasks (1, 2, 3 against a2's flat 5).
 % variant-01 imposes no per-agent capacity, so the optimum gives all three to a1,

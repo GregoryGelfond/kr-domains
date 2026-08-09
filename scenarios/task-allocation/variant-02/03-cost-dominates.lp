@@ -2,7 +2,7 @@
 % @expect sat
 % @cost { 3 15 }
 % @count optimal 1
-% @optimal { assigned_to(a1,t1), assigned_to(a1,t2), assigned_to(a1,t3), cost_of(a1,t1,1), cost_of(a1,t2,1), cost_of(a1,t3,1) }
+% @optimal { assigned_to(a1,t1), assigned_to(a1,t2), assigned_to(a1,t3), assigned_cost(a1,t1,1), assigned_cost(a1,t2,1), assigned_cost(a1,t3,1) }
 %
 % a1 is strictly cheaper for every task (1 against 3) but strictly slower (5
 % against 1). Cost-min is unique: a1 takes all three at total cost 3, makespan 15
