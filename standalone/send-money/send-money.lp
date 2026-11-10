@@ -1,7 +1,7 @@
 % SEND + MORE = MONEY.
 % @expect sat
 % @count  1
-% @model  { assign(s,9), assign(e,5), assign(n,6), assign(d,7), assign(m,1), assign(o,0), assign(r,8), assign(y,2) }
+% @answer-set  { assign(s,9), assign(e,5), assign(n,6), assign(d,7), assign(m,1), assign(o,0), assign(r,8), assign(y,2) }
 %
 % A cryptarithmetic puzzle: assign the eight letters {S, E, N, D, M, O, R, Y} to
 % distinct decimal digits so that SEND + MORE = MONEY holds when each word is read

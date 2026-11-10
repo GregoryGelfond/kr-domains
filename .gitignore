@@ -1,6 +1,0 @@
-# kr-domains — project-local ignores.
-# Machine/OS/editor cruft (.DS_Store, swap files, …) lives in the global
-# excludesfile (~/.config/git/ignore); keep only project-specific patterns here.
-
-# pixi environment (pixi.lock is committed; the env is not)
-/.pixi/
